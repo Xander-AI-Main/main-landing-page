@@ -118,9 +118,10 @@ export default function ActualTrainer({ fileData }) {
             hyperparameters: hyperparameters
         };
 
-        await axios.post('http://127.0.0.1:8000/core/train/', trainingData).then((res) => {
+        await axios.post('https://api.xanderco.in/core/train/', trainingData).then((res) => {
             console.log(res.data)
             setFinalModel(res.data)
+            setProgress(res.data.epoch_data)
             setHasEnded(true)
             setInterferenceCode(res.data.interferenceCode)
             //             if (res.data.task === "regression") {
@@ -569,7 +570,7 @@ export default function ActualTrainer({ fileData }) {
         })
 
         // try {
-        //     const response = await fetch('http://127.0.0.1:8000/core/train/', {
+        //     const response = await fetch('https://api.xanderco.in/core/train/', {
         //         method: 'POST',
         //         headers: {
         //             'Content-Type': 'application/json',
@@ -591,7 +592,7 @@ export default function ActualTrainer({ fileData }) {
     };
 
     useEffect(() => {
-        const newSocket = new WebSocket(`ws://127.0.0.1:8000/ws/data/${userId}/`);
+        const newSocket = new WebSocket(`wss://api.xanderco.in/ws/data/${userId}/`);
 
         setSocket(newSocket);
 
@@ -605,6 +606,7 @@ export default function ActualTrainer({ fileData }) {
                 if (data.modelUrl) {
                     setHasEnded(true)
                     setFinalModel(data)
+
                 } else {
                     setProgress(progress => [...progress, data])
                 }

@@ -25,7 +25,7 @@ function App() {
   async function getUsers() {
     await axios
       .get(
-        `http://127.0.0.1:8000/core/update/?userId=${localStorage.getItem(
+        `https://api.xanderco.in/core/update/?userId=${localStorage.getItem(
           "userId"
         )}`
       )

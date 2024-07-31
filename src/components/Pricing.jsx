@@ -9,7 +9,7 @@ export default function Pricing() {
   const navigate = useNavigate()
 
   async function purhchase (plan, storage, cpu, gpu) {
-    await axios.put('http://127.0.0.1:8000/core/update/', {
+    await axios.put('https://api.xanderco.in/core/update/', {
       userId: localStorage.getItem("userId"),
       plan: plan,
       max_storage_allowed: storage,

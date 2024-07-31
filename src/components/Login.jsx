@@ -41,7 +41,7 @@ export default function Login() {
           theme: "dark", 
         });
       } else {
-        await axios.post("http://127.0.0.1:8000/core/login/", {
+        await axios.post("https://api.xanderco.in/core/login/", {
           "username_or_email": details.email === "" ? details.username : details.email,
           "password": details.password
         }).then(res => {

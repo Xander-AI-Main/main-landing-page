@@ -43,7 +43,7 @@ export default function Signup() {
           theme: "dark",
         });
       } else {
-        await axios.post("http://127.0.0.1:8000/core/signup/signup//", details).then(res => {
+        await axios.post("https://api.xanderco.in/core/signup/signup//", details).then(res => {
           console.log(res.data)
           setDetails({
             email: '',
