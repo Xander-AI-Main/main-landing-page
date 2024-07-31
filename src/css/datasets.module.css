@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7rem;
+  margin-top: 1.5rem;
+  width: 86%;
+  height: 81vh;
+}
+
+.sub__container {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.table__wrapper {
+  height: 81vh;
+  overflow-y: scroll;
+}
+
+.table__wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #c0b7e8;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+.table {
+  width: 100%;
+}
+
+.t__header {
+  position: sticky;
+  top: 0rem;
+  /* background: rgba(217, 217, 217, 0.2);  */
+  z-index: 1;
+}
+
+.t__header > tr > th {
+  background: #575367;
+  color: #c0b7e8;
+  padding: 0.7rem 1rem;
+  font-family: "Brockmann";
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.sno {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.model__name {
+}
+
+.task__name {
+  padding: 0.7rem 1rem 0.7rem 2rem !important;
+}
+
+.model__type {
+  padding: 0.7rem 1rem 0.7rem 1.3rem !important;
+}
+
+.action {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding: 0.7rem 1rem 0.7rem 2.9rem !important;
+  cursor: pointer;
+}
+
+.t__body > tr {
+  border-bottom: 0.1px solid #c0b7e8;
+}
+
+.t__body > tr > td {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #c4c4c4;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  padding: 1.1rem 1rem;
+}
+
+.download {
+  cursor: pointer;
+}
+
+.download:hover {
+  color: #c0b7e8;
+  text-decoration: underline;
+}

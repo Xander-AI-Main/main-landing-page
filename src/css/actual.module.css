@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin-left: 5rem;
+  margin-top: 2rem;
+}
+
+.task__details {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+}
+
+.task__name {
+  font-size: 3.2rem;
+  /* font-weight: 600; */
+  margin-bottom: 1.5rem;
+  color: #c0b7e8;
+  font-family: "Brockmann";
+}
+
+.arch__header {
+  font-size: 1.8rem;
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}
+
+.type__details {
+  display: flex;
+  margin-top: 1.2rem;
+  color: #fff;
+}
+
+.type__details > div {
+  margin-left: 0.4rem;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}
+
+.type__details > span {
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.hyperparameters {
+  margin-top: 2rem;
+}
+
+.param__header {
+  font-size: 1.8rem;
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}
+
+.all__params {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.current__params {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  width: 26%;
+}
+
+.param__name {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.param__value {
+  padding: 0.7rem 0.7rem;
+  width: 91%;
+  border: none;
+  margin-top: 0.5rem;
+  border-radius: 9px;
+  font-size: 1.1rem;
+  background: rgba(217, 217, 217, 0.2);
+  outline: none;
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}
+
+.start__training {
+  cursor: pointer;
+  width: 11rem;
+  height: 3.2rem;
+  color: white;
+  background: rgb(63 0 173);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}
+
+.training__main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.training__text {
+  display: flex;
+}
+
+.training__text > span {
+  font-size: 1.8rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.bouncing_loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.3rem;
+  margin-left: 0.4rem;
+}
+
+.bouncing_loader > div {
+  width: 7px;
+  height: 7px;
+  margin: 0px 3px;
+  border-radius: 50%;
+  background-color: #a3a1a1;
+  opacity: 1;
+  animation: bouncing_loader 0.6s infinite alternate;
+}
+
+@keyframes bouncing_loader {
+  to {
+    opacity: 0.1;
+    /* transform: translateY(-8px); */
+  }
+}
+
+.bouncing_loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing_loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.training__data {
+  height: 15rem;
+  overflow-y: scroll;
+  width: 85%;
+  margin-top: 2rem;
+}
+
+.training__data::-webkit-scrollbar {
+  display: none;
+}
+
+.current__train__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.current__train__info > span {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.current__train__info > div {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Gilmer Light";
+}
+
+.training__btns {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  /* margin-top: 2rem; */
+  margin-left: 3rem;
+}
+
+.download__model {
+  cursor: pointer;
+  width: 11rem;
+  height: 3rem;
+  color: white;
+  background: rgb(63 0 173);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.01rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.copy__code {
+  cursor: pointer;
+  width: 8rem;
+  height: 3rem;
+  color: white;
+  background: rgb(63 0 173);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.01rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.code__main {
+}
+
+.code__main > div {
+  width: 48rem !important;
+  display: flex !important;
+  margin: auto !important;
+  height: 38rem !important;
+  margin-top: 4rem !important;
+  margin-left: -5rem !important;
+}
+
+.code__header {
+  font-size: 1.3rem;
+  /* font-weight: 700; */
+  font-family: "Brockmann";
+}
+
+.code__body {
+  height: 34rem !important;
+  overflow-y: scroll !important;
+}
+
+.file__stuff {
+  margin-bottom: 0.6rem;
+}
+
+.file__first {
+  font-size: 1.1rem;
+  font-family: "Poppins";
+}
+
+.terminal__stuff {
+}
+
+.terminal__first {
+  font-size: 1.1rem;
+  font-family: "Poppins";
+}
+
+.code__section__main {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0rem;
+}
+
+.code__section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: "Poppins";
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow-x: auto;
+}
+
+.code__section ::-webkit-scrollbar {
+  display: none;
+}
+
+.code__section pre {
+  background: #0d0d0d !important;
+  padding: 0; 
+  margin-top: -1.5rem !important; 
+}
+
+.code__section code {
+  color: inherit; 
+}
+
+.section__header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #2f2f2f;
+  padding: 0.8rem 0.8rem;
+  color: #b4b4b4;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.section__header > span {
+  cursor: pointer;
+}
+
+.section__header > div {
+  cursor: pointer;
+}
+
+.section__header > div > span {
+  color: #b4b4b4;
+  font-size: 0.85rem;
+}
+
+.section__header > div > img {
+  margin-right: 0.5rem;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.main__code {
+}

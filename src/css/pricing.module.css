@@ -1,0 +1,163 @@
+.contanier {
+  width: 100%;
+  background-image: linear-gradient(rgba(1, 2, 27, 0.7), rgba(1, 2, 27, 0.7)),
+    url("../assets/Frame 12.png");
+  background-repeat: no-repeat;
+}
+
+.navbar {
+  /* width: 100%; */
+  box-shadow: 0px 0px 8px #dfdfdf;
+  padding: 1.1rem 2.5rem;
+}
+
+.navbar > span {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+}
+
+.main__header {
+  font-size: 3.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  background: linear-gradient(269deg, #ffb6b6 -0.5%, #a1a3ff 102.95%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Brockmann";
+}
+
+.underlying__text {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: "Brockmann";
+  font-weight: 500;
+  margin-top: 0.6rem;
+}
+
+.more__underlying__text {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  width: 42%;
+  text-align: center;
+  font-weight: 300;
+}
+
+.all__pricing {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 4rem;
+  margin-left: 5rem;
+}
+
+.current__pricing {
+  display: flex;
+  flex-direction: column;
+  width: 14rem;
+  height: 22rem;
+  border-radius: 38px;
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(217, 217, 217, 0.08);
+  -webkit-backdrop-filter: blur(20.53333282470703px);
+  backdrop-filter: blur(20.53333282470703px);
+  justify-content: center;
+  padding: 0rem 0rem 0rem 2rem;
+  margin-bottom: 4rem;
+  margin-right: 5rem;
+  cursor: pointer;
+}
+
+.plan__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.details {
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.price__header {
+  font-size: 0.9rem;
+  font-family: "Brockmann";
+  color: #dfdfdf;
+  margin-bottom: 0.2rem;
+}
+
+.price__style {
+  margin-top: 2rem;
+}
+
+.main__price {
+  margin-top: 0.2rem;
+}
+
+.time {
+  font-size: 0.9rem;
+  font-family: "Brockmann";
+  color: #dfdfdf;
+  margin-bottom: 0.2rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.text > img {
+  margin-right: 0.5rem;
+}
+
+.gradient {
+  position: absolute;
+  background: linear-gradient(
+    261deg,
+    rgba(247, 118, 118, 0.4) -123.84%,
+    rgba(49, 53, 247, 0.4) 199.04%
+  );
+  filter: blur(320px);
+  height: 100vh;
+  width: 20rem;
+  left: 0;
+  margin-top: -5rem;
+}
+
+.gradient__end {
+  position: absolute;
+  background: linear-gradient(
+    261deg,
+    rgba(247, 118, 118, 0.4) -123.84%,
+    rgba(49, 53, 247, 0.4) 199.04%
+  );
+  filter: blur(320px);
+  height: 100vh;
+  width: 20rem;
+  right: 0;
+  margin-top: -5rem;
+}

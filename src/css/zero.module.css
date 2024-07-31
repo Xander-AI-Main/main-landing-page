@@ -1,0 +1,40 @@
+.container {
+  height: 100%;
+}
+
+.actual__shingle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 91%;
+}
+
+.actual__shingle > img {
+  width: 11rem;
+  height: 11rem;
+}
+
+.actual__shingle > span {
+  color: #c0b7e8;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  font-size: 1.8rem;
+  width: 31%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.actual__shingle > button {
+  position: relative;
+  top: 1.5rem;
+  border: 1px solid #c0b7e8;
+  background: transparent;
+  color: #c0b7e8;
+  font-size: 1.1rem;
+  padding: 0.6rem 2rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+}

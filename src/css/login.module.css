@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar__content {
+  padding: 1.5rem 3rem;
+}
+
+.navbar__content > span {
+  color: #fff;
+  font-family: "Bruno Ace";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  width: 82%;
+  margin: 2rem auto;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.question {
+  display: flex;
+  margin-top: 1.2rem;
+  cursor: pointer;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome__text {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 43px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.first {
+  color: #a1a1a1;
+  font-family: "Brockmann";
+  font-size: 21px;
+  font-style: normal;
+  /* font-weight: 600; */
+}
+
+.second {
+  background: linear-gradient(216deg, #f77676 0%, #3135f7 137.15%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Brockmann";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 700;
+  margin-left: 0.4rem;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.8rem;
+}
+
+.email__header {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 16px;
+  font-weight: 700;
+  background: #01021b;
+  position: relative;
+  top: 0.65rem;
+  width: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0.8rem;
+}
+
+.username__header {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 16px;
+  font-weight: 700;
+  background: #01021b;
+  position: relative;
+  top: 0.65rem;
+  width: 5.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0.8rem;
+}
+
+.password__header {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 16px;
+  font-weight: 700;
+  background: #01021b;
+  position: relative;
+  top: 0.65rem;
+  width: 5.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0.8rem;
+}
+
+.detail__input {
+  border: 1px solid #a1a1a1;
+  background: #01021b;
+  outline: none;
+  color: white;
+  padding: 0.8rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.96rem;
+  width: 21rem;
+}
+
+.or {
+  display: flex;
+  justify-content: space-between;
+  width: 23rem;
+  margin: 2rem auto 0rem auto;
+  align-items: center;
+}
+
+.or > span {
+  font-family: "Brockmann";
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.line1 {
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #999 100%);
+}
+
+.line2 {
+  width: 40%;
+  height: 2px;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #999 100%);
+}
+
+.login__btn {
+  font-family: "Brockmann";
+  background: #3135f7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 0.8rem 0.8rem 0.9rem 0.8rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.gradient__bg {
+  background: linear-gradient(258deg, #f77676 -5.27%, #3135f7 112.61%);
+  filter: blur(172px);
+  width: 17rem;
+  position: absolute;
+  height: 17rem;
+  left: 38rem;
+  top: 15rem;
+  z-index: 2;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  width: 33.5rem;
+  justify-content: space-between;
+}
+
+.box1 {
+  border-radius: 22px;
+  background: linear-gradient(
+    266deg,
+    rgba(247, 118, 118, 0.1) -69.69%,
+    rgba(49, 53, 247, 0.1) 215.33%
+  );
+  box-shadow: 17.167px -17.167px 17.167px 0px rgba(112, 65, 139, 0.1) inset,
+    -17.167px 17.167px 17.167px 0px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(17.16666603088379px);
+  width: 16rem;
+  height: 14rem;
+}
+
+.box2 {
+  border-radius: 22px;
+  background: linear-gradient(
+    266deg,
+    rgba(247, 118, 118, 0.1) -69.69%,
+    rgba(49, 53, 247, 0.1) 215.33%
+  );
+  box-shadow: 17.167px -17.167px 17.167px 0px rgba(112, 65, 139, 0.1) inset,
+    -17.167px 17.167px 17.167px 0px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(17.16666603088379px);
+  width: 16rem;
+  height: 18rem;
+}
+
+.box4 {
+  border-radius: 22px;
+  background: linear-gradient(
+    266deg,
+    rgba(247, 118, 118, 0.1) -69.69%,
+    rgba(49, 53, 247, 0.1) 215.33%
+  );
+  box-shadow: 17.167px -17.167px 17.167px 0px rgba(112, 65, 139, 0.1) inset,
+    -17.167px 17.167px 17.167px 0px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(17.16666603088379px);
+  width: 16rem;
+  height: 16rem;
+  margin-top: 1.5rem;
+}
+
+.box3 {
+  border-radius: 22px;
+  background: linear-gradient(
+    266deg,
+    rgba(247, 118, 118, 0.1) -69.69%,
+    rgba(49, 53, 247, 0.1) 215.33%
+  );
+  box-shadow: 17.167px -17.167px 17.167px 0px rgba(112, 65, 139, 0.1) inset,
+    -17.167px 17.167px 17.167px 0px rgba(255, 255, 255, 0.1) inset;
+  backdrop-filter: blur(17.16666603088379px);
+  width: 16rem;
+  height: 20.3rem;
+  margin-top: -2.6rem;
+}

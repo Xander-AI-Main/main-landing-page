@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  /* margin-left: auto; */
+  position: relative;
+  z-index: 12;
+}
+
+.background__style {
+  width: 98vw;
+  height: 36rem;
+  position: absolute;
+  background: linear-gradient(
+    129deg,
+    rgba(49, 53, 247, 0.1) -68.33%,
+    rgba(247, 118, 118, 0.1) 145.99%
+  );
+  filter: blur(50px);
+  z-index: 10;
+  top: 7rem;
+  z-index: 10;
+}
+
+.bg__wave {
+  width: 100%;
+  height: 23rem;
+  position: absolute;
+  z-index: 10;
+  top: 19rem;
+  z-index: 11;
+}
+
+.bg__wave > img {
+  width: 100%;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  flex-direction: column;
+}
+
+.pro__text {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.pro__text > span {
+  color: white;
+  /* margin-top: 1rem; */
+  position: relative;
+  /* top: 0.8rem; */
+  font-size: 1.2rem;
+  font-family: 'Gilmer Light';
+  font-weight: 600;
+}
+
+
+.bouncing_loader {
+  display: flex;
+  justify-content: center;
+  margin-left: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.bouncing_loader > div {
+  width: 7px;
+  height: 7px;
+  margin: 0px 3px;
+  border-radius: 50%;
+  background-color: #a3a1a1;
+  opacity: 1;
+  animation: bouncing_loader 0.6s infinite alternate;
+}
+
+@keyframes bouncing_loader {
+  to {
+    opacity: 0.1;
+    /* transform: translateY(-8px); */
+  }
+}
+
+.bouncing_loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing_loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
