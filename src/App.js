@@ -68,6 +68,7 @@ const AppContent = ({ data }) => {
       ) : (
         <Routes>
           <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pricing" element={<Pricing />} />
         </Routes>
