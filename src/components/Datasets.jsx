@@ -4,7 +4,6 @@ import axios from 'axios'
 import ZeroStateScreen from './ZeroStateScreen'
 
 export default function Datasets({ data }) {
-    console.log(data)
     async function download(item) {
         const response = await axios.get(item, { responseType: 'blob' });
         const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -15,6 +14,7 @@ export default function Datasets({ data }) {
         link.click();
         link.remove();
     }
+
     return (
         <div className={styles.container}>
             {data?.dataset_url && data?.dataset_url?.length > 0 ? <div className={styles.sub__container}>

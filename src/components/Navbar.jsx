@@ -11,7 +11,7 @@ export default function Navbar({ data, collapsed }) {
     <div className={styles.navbar}>
       <span style={{opacity: collapsed ? "0" : "1", pointerEvents: collapsed && "none"}} onClick={() => {
         navigate('/main')
-        window.location.reload()
+        // window.location.reload()
       }}>Xander</span>
       <div className={styles.complete}>
         <div className={styles.username__thing}>

@@ -60,10 +60,9 @@
   position: relative;
   /* top: 0.8rem; */
   font-size: 1.2rem;
-  font-family: 'Gilmer Light';
+  font-family: "Gilmer Light";
   font-weight: 600;
 }
-
 
 .bouncing_loader {
   display: flex;
@@ -95,4 +94,71 @@
 
 .bouncing_loader > div:nth-child(3) {
   animation-delay: 0.4s;
+}
+
+.modal__main {
+  width: 47rem !important;
+  font-family: "Roboto" !important;
+}
+
+.modal__main > div {
+  width: 47.7rem !important;
+  margin-left: -5rem;
+}
+
+.modal__header {
+  width: 46.8rem !important;
+}
+
+.modal__header > span {
+  font-family: "Roboto";
+  font-size: 1.5rem;
+}
+
+.modal__body {
+  width: 48rem !important;
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.modal__body::-webkit-scrollbar{
+  display: none;
+}
+
+.info {
+  font-size: 1.2rem;
+  font-family: "Roboto";
+}
+
+.info__main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.info__main > span {
+  font-size: 1.05rem;
+  margin-left: 1.3rem;
+}
+
+.download {
+  color: #272727;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info__main > div {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.documentation {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  cursor: pointer;
+}
+
+.documentation > img {
+  width: 2.5rem;
 }
