@@ -53,7 +53,7 @@ function App() {
 
 const AppContent = ({ data }) => {
   const location = useLocation();
-  const noLayoutPaths = ["/signup", "/login", "/pricing"];
+  const noLayoutPaths = ["/signup", "/login", "/pricing", "/"];
   const useLayout = !noLayoutPaths.includes(location.pathname);
 
   return (
@@ -70,8 +70,8 @@ const AppContent = ({ data }) => {
         </Layout>
       ) : (
         <Routes>
-          <Route path="/signup" element={<Signup />} />
           <Route path="/" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pricing" element={<Pricing />} />
         </Routes>
