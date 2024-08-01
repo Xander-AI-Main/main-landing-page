@@ -10,8 +10,10 @@ export default function Navbar({ data, collapsed }) {
   return (
     <div className={styles.navbar}>
       <span style={{opacity: collapsed ? "0" : "1", pointerEvents: collapsed && "none"}} onClick={() => {
+        if(window.location.href.includes("main")) {
+          window.location.reload()
+        }
         navigate('/main')
-        // window.location.reload()
       }}>Xander</span>
       <div className={styles.complete}>
         <div className={styles.username__thing}>

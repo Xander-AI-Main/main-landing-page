@@ -121,7 +121,7 @@ export default function ActualTrainer({ fileData }) {
         await axios.post('https://api.xanderco.in/core/train/', trainingData).then((res) => {
             console.log(res.data)
             setFinalModel(res.data)
-            setProgress(res.data.epoch_data)
+            setProgress(res.data.epoch_data ? res.data.epoch_data : [])
             setHasEnded(true)
             setInterferenceCode(res.data.interferenceCode)
             //             if (res.data.task === "regression") {
