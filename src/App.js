@@ -18,6 +18,8 @@ import "./App.css";
 import Datasets from "./components/Datasets";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Favicon from "react-favicon";
+import icon from '../src/assets/image.png'
 
 function App() {
   const [data, setData] = useState({});
@@ -56,6 +58,7 @@ const AppContent = ({ data }) => {
 
   return (
     <div>
+      <Favicon url={icon} />
       {useLayout ? (
         <Layout data={data}>
           <Routes>
