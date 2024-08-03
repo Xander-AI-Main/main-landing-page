@@ -18,6 +18,7 @@ export default function Pricing() {
     }).then(res => {
       console.log(res.data)
       navigate('/main')
+      window.location.reload()
     }).catch(err => {
       console.log(err)
     })
