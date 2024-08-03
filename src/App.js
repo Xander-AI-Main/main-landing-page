@@ -4,6 +4,7 @@ import {
   Routes,
   Route,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import axios from "axios";
 import Signup from "./components/Signup";
@@ -23,6 +24,7 @@ import icon from '../src/assets/image.png'
 
 function App() {
   const [data, setData] = useState({});
+
 
   async function getUsers() {
     await axios
@@ -55,6 +57,14 @@ const AppContent = ({ data }) => {
   const location = useLocation();
   const noLayoutPaths = ["/signup", "/login", "/pricing", "/"];
   const useLayout = !noLayoutPaths.includes(location.pathname);
+
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!localStorage.getItem("userId")) {
+      navigate('/')
+    }
+  }, [])
 
   return (
     <div>

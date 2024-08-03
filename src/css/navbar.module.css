@@ -8,6 +8,8 @@
   top: 0;
   width: 96%;
   margin-left: auto;
+  position: relative;
+  z-index: 9999;
 }
 
 .navbar > span {
@@ -56,8 +58,18 @@
 .complete {
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 9999;
 }
 
 .drop {
   cursor: pointer;
+}
+
+.menu {
+  position: fixed !important;
+  z-index: 999 !important;
+  top: 1.1rem !important;
+  right: 2.3rem !important;
+  transform: translate3d(-2px, 42.6px, 0px) !important;
 }
