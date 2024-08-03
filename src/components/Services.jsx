@@ -8,7 +8,7 @@ import info from '../assets/info.png'
 
 export default function Services({ changeState, changeLoadingState, changeFileData, collapsed, changeErrorState }) {
   const [display, setDisplay] = useState("flex")
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(localStorage.getItem("hasAgreed") ? !localStorage.getItem("hasAgreed") : true)
 
   async function uploadFile(e) {
     const file = e.target.files[0];
@@ -49,8 +49,14 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
 
   return (
     <div className={styles.container} style={{ display: display }}>
-      <Modal show={show} dialogClassName={styles.modal__main} onHide={() => setShow(false)} centered>
-        <Modal.Header onHide={() => setShow(false)} className={styles.modal__header} closeButton>
+      <Modal show={show} dialogClassName={styles.modal__main} onHide={() => {
+        setShow(false)
+        localStorage.setItem("hasAgreed", true)
+      }} centered>
+        <Modal.Header onHide={() => {
+          setShow(false)
+          localStorage.setItem("hasAgreed", true)
+        }} className={styles.modal__header} closeButton>
           <span>
             Documentation for Datasets
           </span>
