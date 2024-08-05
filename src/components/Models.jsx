@@ -12,6 +12,7 @@ export default function Models({ data }) {
     const [interferenceCode, setInterferenceCode] = useState(``)
     const [terminalCode, setTerminalCode] = useState(`pip install scikit-learn tensorflow torch numpy nltk sentence_transformers pandas`)
     const [show, setShow] = useState(false)
+    const [codes, setCodes] = useState([])
 
     const copyToClipboard = async () => {
         try {
@@ -26,6 +27,24 @@ export default function Models({ data }) {
                 progress: undefined,
                 theme: "dark", 
               });
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
+    };
+
+    const copyToClipboardGeneral = async (code) => {
+        try {
+            await navigator.clipboard.writeText(code);
+            toast("Copied to clipboard!", {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         } catch (err) {
             console.error('Failed to copy: ', err);
         }
@@ -116,6 +135,50 @@ export default function Models({ data }) {
                             </div>
                         </div>
                     </div>
+                    <div className={styles.main__code}>
+                        <span className={styles.terminal__first}>{"4)"} Code for using api in python:</span>
+                        <div className={styles.code__section__main}>
+                            <div className={styles.section__header}>
+                                <span>Python</span>
+                                <div onClick={() => {
+                                    copyToClipboardGeneral(codes[0]["python"])
+                                }}>
+                                    <img src={copy} alt="" />
+                                    <span>Copy Code</span>
+                                </div>
+                            </div>
+                            <div className={styles.code__section}>
+                                {/* <pre><code>
+                                    {interferenceCode}
+                                </code></pre> */}
+                                <SyntaxHighlighter language="python" style={dracula}>
+                                    {codes[0] && codes[0]["python"] && codes[0]["python"]}
+                                </SyntaxHighlighter>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={styles.main__code}>
+                        <span className={styles.terminal__first}>{"5)"} Code for using api in javascript:</span>
+                        <div className={styles.code__section__main}>
+                            <div className={styles.section__header}>
+                                <span>Python</span>
+                                <div onClick={() => {
+                                    copyToClipboardGeneral(codes[1]["javascript"])
+                                }}>
+                                    <img src={copy} alt="" />
+                                    <span>Copy Code</span>
+                                </div>
+                            </div>
+                            <div className={styles.code__section}>
+                                {/* <pre><code>
+                                    {interferenceCode}
+                                </code></pre> */}
+                                <SyntaxHighlighter language="javascript" style={dracula}>
+                                    {codes[1] && codes[1]["javascript"] && codes[1]["javascript"]}
+                                </SyntaxHighlighter>
+                            </div>
+                        </div>
+                    </div>
                 </Modal.Body>
             </Modal>
             {data?.trained_model_url && data?.trained_model_url?.length > 0 ? <div className={styles.sub__container}>
@@ -143,6 +206,7 @@ export default function Models({ data }) {
                                             <td>{item?.modelArch && item?.modelArch[0] && item?.modelArch[0].length > 1 ? "Deep Learning" : "Machine Learning"}</td>
                                             <td className={styles.download} style={{ padding: '1.1rem 1rem 1.1rem 3rem' }} onClick={() => {
                                                 setInterferenceCode(item?.interferenceCode)
+                                                setCodes(item?.codes ? item?.codes : [{"python": ""}, {"javascript": ""}])
                                                 setShow(true)
                                             }}>View Code</td>
                                             <td className={styles.download} onClick={() => {
