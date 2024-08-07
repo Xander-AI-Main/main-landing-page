@@ -147,8 +147,6 @@ export default function ActualTrainer({ fileData }) {
         }).catch(err => {
             console.log(err)
         })
-
-    
     };
 
     useEffect(() => {

@@ -3,6 +3,7 @@ import styles from '../css/login.module.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { ColorRing } from 'react-loader-spinner'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -12,6 +13,7 @@ export default function Login() {
     username: ''
   })
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const [started, setStarted] = useState(false)
 
   async function login() {
     console.log(details)
@@ -41,6 +43,7 @@ export default function Login() {
           theme: "dark", 
         });
       } else {
+        setStarted(true)
         await axios.post("https://api.xanderco.in/core/login/", {
           "username_or_email": details.email === "" ? details.username : details.email,
           "password": details.password
@@ -54,9 +57,11 @@ export default function Login() {
           localStorage.setItem("userId", res.data.userId)
           navigate("/main")
           window.location.reload()
+          setStarted(false)
         }).catch(err => {
           console.log(err)
           // alert("User already exists")
+          setStarted(false)
           toast("An error occured!", {
             position: "top-right",
             autoClose: 4000,
@@ -112,9 +117,19 @@ export default function Login() {
                 setDetails({ ...details, password: e.target.value })
               }} />
             </div>
-            <div className={styles.login__btn} onClick={() => {
+            <div className={styles.login__btn} style={{padding: started ? '0.4rem 0.8rem 0.4rem 0.8rem' : '0.8rem 0.8rem 0.9rem 0.8rem'}} onClick={() => {
               login()
-            }}>Log In</div>
+            }}>
+              {!started ? 'Log In' : <ColorRing
+                visible={true}
+                height="40"
+                width="40"
+                ariaLabel="color-ring-loading"
+                wrapperStyle={{}}
+                wrapperClass="color-ring-wrapper"
+                colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
+              />}
+            </div>
           </div>
         </div>
         <div className={styles.gradient__bg}></div>

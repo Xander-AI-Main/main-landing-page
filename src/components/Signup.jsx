@@ -3,6 +3,7 @@ import styles from '../css/login.module.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { ColorRing } from 'react-loader-spinner'
 
 export default function Signup() {
   const navigate = useNavigate()
@@ -16,6 +17,7 @@ export default function Signup() {
     max_gpu_hours_allowed: 0
   })
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const [started, setStarted] = useState(false)
 
   async function signup() {
     console.log(details)
@@ -43,6 +45,7 @@ export default function Signup() {
           theme: "dark",
         });
       } else {
+        setStarted(true)
         await axios.post("https://api.xanderco.in/core/signup/signup//", details).then(res => {
           console.log(res.data)
           setDetails({
@@ -57,8 +60,10 @@ export default function Signup() {
           localStorage.setItem("userId", res.data.userId)
           navigate("/main")
           window.location.reload()
+          setStarted(false)
         }).catch(err => {
           console.log(err)
+          setStarted(false)
           toast("User already exists!", {
             position: "top-right",
             autoClose: 4000,
@@ -67,7 +72,7 @@ export default function Signup() {
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "dark", 
+            theme: "dark",
           });
         })
       }
@@ -109,9 +114,19 @@ export default function Signup() {
                 setDetails({ ...details, password: e.target.value })
               }} />
             </div>
-            <div className={styles.login__btn} onClick={() => {
+            <div className={styles.login__btn} style={{padding: started ? '0.4rem 0.8rem 0.4rem 0.8rem' : '0.8rem 0.8rem 0.9rem 0.8rem'}} onClick={() => {
               signup()
-            }}>Sign Up</div>
+            }}>
+              {!started ? 'Sign Up' : <ColorRing
+                visible={true}
+                height="40"
+                width="40"
+                ariaLabel="color-ring-loading"
+                wrapperStyle={{}}
+                wrapperClass="color-ring-wrapper"
+                colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
+              />}
+            </div>
           </div>
         </div>
         <div className={styles.gradient__bg}></div>
