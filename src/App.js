@@ -20,12 +20,12 @@ import Datasets from "./components/Datasets";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Favicon from "react-favicon";
-import icon from '../src/assets/image.png'
+import icon from "../src/assets/image.png";
+import { useSelector } from "react-redux";
 
 function App() {
   const [data, setData] = useState({});
-
-
+  const { reFetchModel } = useSelector((state) => state.noPersistXanderSlice);
   async function getUsers() {
     await axios
       .get(
@@ -45,7 +45,12 @@ function App() {
   useEffect(() => {
     getUsers();
   }, []);
-
+  console.log(reFetchModel)
+  useEffect(() => {
+    if (reFetchModel == true) {
+      getUsers();
+    }
+  }, [reFetchModel]);
   return (
     <Router>
       <AppContent data={data} />
@@ -58,13 +63,13 @@ const AppContent = ({ data }) => {
   const noLayoutPaths = ["/signup", "/login", "/pricing", "/"];
   const useLayout = !noLayoutPaths.includes(location.pathname);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem("userId")) {
-      navigate('/')
+      navigate("/");
     }
-  }, [])
+  }, []);
 
   return (
     <div>

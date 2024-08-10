@@ -7,8 +7,12 @@ import copy from '../assets/copy.svg'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedlight, dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setRefetchModels } from '../Redux/Slices/noPersistXanderSlice';
 
 export default function ActualTrainer({ fileData }) {
+    const dispatch = useDispatch()
+
     const [isMl, setIsMl] = useState(false)
     const [hasStarted, setHasStarted] = useState(false)
     const [hasEnded, setHasEnded] = useState(false)
@@ -90,7 +94,6 @@ export default function ActualTrainer({ fileData }) {
         }
     };
 
-
     useEffect(() => {
         console.log(fileData)
         if (fileData.architecture_details.length > 2) {
@@ -124,9 +127,9 @@ export default function ActualTrainer({ fileData }) {
     }
 
     const userId = localStorage.getItem("userId");
-
     const handleStartTraining = async () => {
         setHasStarted(true);
+        dispatch(setRefetchModels(false))
         const trainingData = {
             dataset_url: fileData.cloud_url,
             hasChanged: false,
@@ -142,6 +145,7 @@ export default function ActualTrainer({ fileData }) {
             setFinalModel(res.data)
             setProgress(res.data.epoch_data ? res.data.epoch_data : [])
             setHasEnded(true)
+            dispatch(setRefetchModels(true))
             setInterferenceCode(res.data.interferenceCode)
             setCodes(res.data.codes)
         }).catch(err => {
@@ -169,7 +173,6 @@ export default function ActualTrainer({ fileData }) {
                     setProgress(progress => [...progress, data])
                 }
                 console.log(data)
-                // ref.current.scrollIntoView({ behavior: 'smooth' });
                 if (document.getElementById("scroll")) {
                     document.getElementById("scroll").scrollBy({ top: document.getElementById("scroll").scrollTop + 30 })
                 }

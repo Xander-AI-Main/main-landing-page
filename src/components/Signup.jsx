@@ -7,6 +7,9 @@ import { ColorRing } from 'react-loader-spinner'
 
 export default function Signup() {
   const navigate = useNavigate()
+  const [futureDate, setFutureDate] = useState(new Date());
+  const future = new Date();
+  future.setDate(future.getDate() + 30);
   const [details, setDetails] = useState({
     email: '',
     password: '',
@@ -14,7 +17,10 @@ export default function Signup() {
     plan: 'free',
     max_storage_allowed: 5,
     max_cpu_hours_allowed: 5,
-    max_gpu_hours_allowed: 0
+    max_gpu_hours_allowed: 0,
+    // purchase_date: new Date(),
+    // has_expired: false,
+    // expired_date: future
   })
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [started, setStarted] = useState(false)
@@ -114,7 +120,7 @@ export default function Signup() {
                 setDetails({ ...details, password: e.target.value })
               }} />
             </div>
-            <div className={styles.login__btn} style={{padding: started ? '0.4rem 0.8rem 0.4rem 0.8rem' : '0.8rem 0.8rem 0.9rem 0.8rem'}} onClick={() => {
+            <div className={styles.login__btn} style={{ padding: started ? '0.4rem 0.8rem 0.4rem 0.8rem' : '0.8rem 0.8rem 0.9rem 0.8rem' }} onClick={() => {
               signup()
             }}>
               {!started ? 'Sign Up' : <ColorRing
