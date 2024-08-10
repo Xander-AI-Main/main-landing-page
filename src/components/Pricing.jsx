@@ -3,7 +3,7 @@ import styles from '../css/pricing.module.css'
 import tick from '../assets/a.svg'
 import circles from '../assets/Frame 12.png'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Pricing() {
   const navigate = useNavigate()
@@ -194,6 +194,13 @@ export default function Pricing() {
                 <span className={styles.time}> / month</span>
               </div>
             </div>
+          </div>
+          <div className={styles.payment_button}>
+            <Link to="https://www.paypal.com/ncp/payment/8QW2R77EKVFGL">
+              <span className={styles.actual_button}>
+              Choose Your Plan Now
+              </span>
+            </Link>
           </div>
           <div className={styles.current__pricing} onClick={() => {
             purhchase('pro', 200, 0, 120)
