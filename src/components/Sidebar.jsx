@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from '../css/sidebar.module.css'
 import profile from '../assets/profile.svg'
 import info from '../assets/info.svg'
+import home from '../assets/home.png'
 import model from '../assets/model.svg'
 import dataset from '../assets/dataset.svg'
 import menu from '../assets/menu.svg'
@@ -26,6 +27,15 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
       </div>
       <div className={styles.options}>
         <div className={styles.above__options}>
+          <div className={styles.option} onClick={() => {
+            if (window.location.href.includes("main")) {
+              window.location.reload()
+            }
+            navigate('/main')
+          }}>
+            <img src={home} style={{width: '27px'}} alt="profile" />
+            {collapsed && <span>Home</span>}
+          </div>
           <div className={styles.option} onClick={() => {
             navigate('/profile')
           }}>

@@ -100,7 +100,7 @@
 .below__options {
     display: flex;
     flex-direction: column;
-    margin-top: 19rem;
+    margin-top: 15rem;
 }
 
 .below__options > span {

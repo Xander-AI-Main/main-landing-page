@@ -8,7 +8,7 @@ import { Link, useNavigate } from 'react-router-dom'
 export default function Pricing() {
   const navigate = useNavigate()
 
-  async function purhchase (plan, storage, cpu, gpu) {
+  async function purhchase(plan, storage, cpu, gpu) {
     await axios.put('https://api.xanderco.in/core/update/', {
       userId: localStorage.getItem("userId"),
       plan: plan,
@@ -88,7 +88,7 @@ export default function Pricing() {
               <span className={styles.details}>Chatbot Creation</span>
             </div>
             <div className={styles.text}>
-              <img src={tick} alt="" style={{opacity: 0}}/>
+              <img src={tick} alt="" style={{ opacity: 0 }} />
               <span className={styles.details}></span>
             </div>
             <div className={styles.price__style}>
@@ -120,7 +120,7 @@ export default function Pricing() {
               <span className={styles.details}>Image Classification</span>
             </div>
             <div className={styles.text}>
-              <img src={tick} alt="" style={{opacity: 0}}/>
+              <img src={tick} alt="" style={{ opacity: 0 }} />
               <span className={styles.details}></span>
             </div>
             <div className={styles.price__style}>
@@ -152,7 +152,7 @@ export default function Pricing() {
               <span className={styles.details}>Text to Speech</span>
             </div>
             <div className={styles.text}>
-              <img src={tick} alt="" style={{opacity: 0}}/>
+              <img src={tick} alt="" style={{ opacity: 0 }} />
               <span className={styles.details}></span>
             </div>
             <div className={styles.price__style}>
@@ -184,7 +184,7 @@ export default function Pricing() {
               <span className={styles.details}>Features in Basic</span>
             </div>
             <div className={styles.text}>
-              <img src={tick} alt="" style={{opacity: 0}}/>
+              <img src={tick} alt="" style={{ opacity: 0 }} />
               <span className={styles.details}></span>
             </div>
             <div className={styles.price__style}>
@@ -194,13 +194,6 @@ export default function Pricing() {
                 <span className={styles.time}> / month</span>
               </div>
             </div>
-          </div>
-          <div className={styles.payment_button}>
-            <Link to="https://www.paypal.com/ncp/payment/8QW2R77EKVFGL">
-              <span className={styles.actual_button}>
-              Choose Your Plan Now
-              </span>
-            </Link>
           </div>
           <div className={styles.current__pricing} onClick={() => {
             purhchase('pro', 200, 0, 120)
@@ -223,7 +216,7 @@ export default function Pricing() {
               <span className={styles.details}>Features in Standard</span>
             </div>
             <div className={styles.text}>
-              <img src={tick} alt="" style={{opacity: 0}}/>
+              <img src={tick} alt="" style={{ opacity: 0 }} />
               <span className={styles.details}></span>
             </div>
             <div className={styles.price__style}>
@@ -236,6 +229,13 @@ export default function Pricing() {
           </div>
           <div className={styles.gradient__end}></div>
         </div>
+      </div>
+      <div className={styles.payment_button}>
+        <Link to="https://www.paypal.com/ncp/payment/8QW2R77EKVFGL">
+          <span className={styles.actual_button}>
+            Choose Your Plan Now
+          </span>
+        </Link>
       </div>
     </div>
   )
