@@ -256,3 +256,12 @@
   height: 20.3rem;
   margin-top: -2.6rem;
 }
+
+@media screen and (max-width: 1100px) {
+  .gradient__bg {
+    display: none;
+  }
+  .boxes {
+    display: none;
+  }
+}
