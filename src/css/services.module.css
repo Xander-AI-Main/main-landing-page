@@ -208,4 +208,11 @@
     width: 89%;
     height: 19rem;
   }
+
+  .container {
+    margin-left: 2rem;
+  }
+  .documentation {
+    right: 0.5rem;
+  }
 }
