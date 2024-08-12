@@ -15,7 +15,7 @@ export default function MainLandingPage({ collapsed }) {
   const [error, setError] = useState(false);
   const [fileData, setFileData] = useState({});
   const [show, setShow] = useState(true)
-  // console.log(collapsed);
+  const [errorD, setErrorD] = useState("")
 
   const changeState = (data) => {
     setHasTrainingStarted(data);
@@ -32,6 +32,10 @@ export default function MainLandingPage({ collapsed }) {
   const changeFileData = (data) => {
     setFileData(data);
   };
+
+  const changeErrorDetails = (data) => {
+    setErrorD(data)
+  }
 
   async function getUsers() {
     await axios
@@ -73,6 +77,7 @@ export default function MainLandingPage({ collapsed }) {
             changeFileData={changeFileData}
             collapsed={collapsed}
             changeErrorState={changeErrorState}
+            changeErrorDetails={changeErrorDetails}
           />
         )}
         {loading && (
@@ -88,7 +93,7 @@ export default function MainLandingPage({ collapsed }) {
             </div>
           </div>
         )}
-        {error && <ZeroStateScreen type={"error"} text={"Oops! It seems you have uploaded a wrong file!"} />}
+        {error && <ZeroStateScreen type={"error"} text={errorD === "" ? "Oops! It seems you have uploaded a wrong file!" : errorD} />}
       </div>
 
     </div>

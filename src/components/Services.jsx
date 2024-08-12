@@ -6,7 +6,7 @@ import { urls } from '../constants/constants'
 import { Modal } from 'react-bootstrap'
 import info from '../assets/info.png'
 
-export default function Services({ changeState, changeLoadingState, changeFileData, collapsed, changeErrorState }) {
+export default function Services({ changeState, changeLoadingState, changeFileData, collapsed, changeErrorState, changeErrorDetails }) {
   const [display, setDisplay] = useState("flex")
   const [show, setShow] = useState(localStorage.getItem("hasAgreed") ? !localStorage.getItem("hasAgreed") : true)
 
@@ -32,7 +32,7 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
       changeErrorState(true)
       changeLoadingState(false)
       changeState(false)
-      console.log(err)
+      changeErrorDetails(err.response.data.detail)
     })
   }
 

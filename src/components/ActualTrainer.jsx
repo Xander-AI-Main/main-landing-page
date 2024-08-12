@@ -9,6 +9,7 @@ import { solarizedlight, dracula } from 'react-syntax-highlighter/dist/esm/style
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { setRefetchModels } from '../Redux/Slices/noPersistXanderSlice';
+import ProgressBarr from './ProgressBar';
 
 export default function ActualTrainer({ fileData }) {
     const dispatch = useDispatch()
@@ -29,6 +30,7 @@ export default function ActualTrainer({ fileData }) {
     const [terminalCode, setTerminalCode] = useState(`pip install scikit-learn tensorflow torch numpy nltk sentence_transformers pandas`)
     const [show, setShow] = useState(false)
     const [codes, setCodes] = useState([])
+    const [currentEpoch, setCurrentEpoch] = useState(0)
 
     const copyToClipboard = async () => {
         try {
@@ -170,6 +172,7 @@ export default function ActualTrainer({ fileData }) {
                     setFinalModel(data)
 
                 } else {
+                    setCurrentEpoch(parseInt(data.epoch))
                     setProgress(progress => [...progress, data])
                 }
                 console.log(data)
@@ -305,7 +308,8 @@ export default function ActualTrainer({ fileData }) {
             <div className={styles.container}>
                 <div className={styles.task__details}>
                     <span className={styles.task__name}>{fileData.task_type.charAt(0).toUpperCase() + fileData.task_type.slice(1)}</span>
-                    <span className={styles.arch__header}>Architecture</span>
+                    <ProgressBarr progress={(currentEpoch / hyperparameters.epochs) * 100} />
+                    {/* <span className={styles.arch__header}>Architecture</span>
                     <div className={styles.type__details}>
                         <span>Type: </span>
                         <div>{isMl ? "Machine Learning" : "Deep Learning"}</div>
@@ -313,6 +317,16 @@ export default function ActualTrainer({ fileData }) {
                     <div className={styles.type__details}>
                         <span>Architecture Used: </span>
                         <div>{figureOutArch(architecture)}</div>
+                    </div> */}
+                    <div className={styles.arch__details}>
+                        <div className={styles.model__type}>
+                            <span>TYPE</span>
+                            <div>{isMl ? "Machine Learning" : "Deep Learning"}</div>
+                        </div>
+                        <div className={styles.model__arch}>
+                            <span>ARCHITECTTURE</span>
+                            <div className={styles.ok}>{figureOutArch(architecture)}</div>
+                        </div>
                     </div>
                 </div>
                 {!hasStarted && Object.keys(hyperparameters).length > 0 && <div className={styles.hyperparameters}>
@@ -330,7 +344,7 @@ export default function ActualTrainer({ fileData }) {
                                                     arr[item] = parseFloat(e.target.value)
                                                     setHyperparameters(arr)
                                                 } else {
-                                                    alert("Validation size can't be greater than 0.4")
+                                                    toast("Validation size can't be greater than 0.4")
                                                 }
                                             } else {
                                                 let arr = { ...hyperparameters }
@@ -345,7 +359,7 @@ export default function ActualTrainer({ fileData }) {
                         }
                     </div>
                 </div>}
-                {!hasStarted && <div className={styles.start__training} onClick={() => handleStartTraining()}>Start Training</div>}
+                {!hasStarted && <div className={styles.start__training} onClick={() => handleStartTraining()}>START TRAINING</div>}
                 {
                     hasStarted && <div className={styles.training__main}>
                         <div className={styles.training__text}>
@@ -378,9 +392,9 @@ export default function ActualTrainer({ fileData }) {
                                 // copyToClipboard()
                                 setShow(true)
                             }}>View Code</div>
-                            <div className={styles.copy__code} onClick={() => {
+                            {/* <div className={styles.copy__code} onClick={() => {
                                 window.location.reload()
-                            }}>Return Home</div>
+                            }}>Return Home</div> */}
                         </div>}
                     </div>
                 }

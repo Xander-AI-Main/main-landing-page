@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 .container {
   display: flex;
@@ -54,14 +54,14 @@
 }
 
 .hyperparameters {
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 
 .param__header {
   font-size: 1.8rem;
-  color: #fff;
   font-family: "Gilmer Light";
   font-weight: 600;
+  color: #C0B7E8;
 }
 
 .all__params {
@@ -76,7 +76,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  margin-right: 1rem;
   font-family: "Gilmer Light";
   font-weight: 600;
   width: 26%;
@@ -105,22 +104,22 @@
   cursor: pointer;
   width: 11rem;
   height: 3.2rem;
-  color: white;
-  background: rgb(63 0 173);
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.50);
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 12px;
   font-family: "Gilmer Light";
-  font-weight: 600;
+  font-weight: 700;
+  margin-top: 7rem;
 }
 
 .training__main {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .training__text {
@@ -129,7 +128,7 @@
 
 .training__text > span {
   font-size: 1.8rem;
-  color: #fff;
+  color: #c0b7e8;
   font-family: "Brockmann";
 }
 
@@ -166,7 +165,7 @@
 }
 
 .training__data {
-  height: 15rem;
+  height: 14.5rem;
   overflow-y: scroll;
   width: 85%;
   margin-top: 2rem;
@@ -208,8 +207,8 @@
   cursor: pointer;
   width: 11rem;
   height: 3rem;
-  color: white;
-  background: rgb(63 0 173);
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.50);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,8 +224,8 @@
   cursor: pointer;
   width: 8rem;
   height: 3rem;
-  color: white;
-  background: rgb(63 0 173);
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.50);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -302,12 +301,12 @@
 
 .code__section pre {
   background: #0d0d0d !important;
-  padding: 0; 
-  margin-top: -1.5rem !important; 
+  padding: 0;
+  margin-top: -1.5rem !important;
 }
 
 .code__section code {
-  color: inherit; 
+  color: inherit;
 }
 
 .section__header {
@@ -342,4 +341,77 @@
 }
 
 .main__code {
+}
+
+.arch__details {
+  display: flex;
+  /* border-bottom: 1px solid #c0b7e8; */
+  width: 100%;
+  padding: 3.5rem 0rem 2.5rem 0rem;
+}
+
+.model__type {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 1px solid #c0b7e8;
+  background: rgba(192, 183, 232, 0.1);
+  padding: 0.65rem 0.8rem;
+  height: 4.45rem;
+  width: 19.5rem;
+  margin-right: 1.5rem;
+}
+
+.model__type > span {
+  color: #c0b7e8;
+  font-family: "Gilmer Light";
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.model__type > div {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 18px;
+  position: relative;
+  top: 0.15rem;
+}
+
+.model__arch {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  border: 1px solid #c0b7e8;
+  background: rgba(192, 183, 232, 0.1);
+  padding: 0.65rem 0.8rem;
+  height: 4.5rem;
+  width: 32rem;
+  /* overflow-x: scroll; */
+}
+
+.model__arch > div  {
+  white-space: nowrap;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.model__arch > span {
+  color: #c0b7e8;
+  font-family: "Gilmer Light";
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.model__arch > div {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 18px;
+  position: relative;
+  top: 0.15rem;
+}
+
+
+.ok::-webkit-scrollbar {
+  display: none;
 }
