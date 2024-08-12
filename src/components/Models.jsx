@@ -93,7 +93,7 @@ export default function Models({ data }) {
                     Copy Interference Code
                 </Modal.Header>
                 <Modal.Body className={styles.code__body}>
-                    <div className={styles.file__stuff}>
+                    {/* <div className={styles.file__stuff}>
                         <span className={styles.file__first}>{"1)"} Firstly create a python file named interference.py</span>
                     </div>
                     <div className={styles.terminal__stuff}>
@@ -126,17 +126,14 @@ export default function Models({ data }) {
                                 </div>
                             </div>
                             <div className={styles.code__section}>
-                                {/* <pre><code>
-                                    {interferenceCode}
-                                </code></pre> */}
                                 <SyntaxHighlighter language="python" style={dracula}>
                                     {interferenceCode}
                                 </SyntaxHighlighter>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className={styles.main__code}>
-                        <span className={styles.terminal__first}>{"4)"} Code for using api in python:</span>
+                        <span className={styles.terminal__first}>{"1)"} Code for using api in python:</span>
                         <div className={styles.code__section__main}>
                             <div className={styles.section__header}>
                                 <span>Python</span>
@@ -158,7 +155,7 @@ export default function Models({ data }) {
                         </div>
                     </div>
                     <div className={styles.main__code}>
-                        <span className={styles.terminal__first}>{"5)"} Code for using api in javascript:</span>
+                        <span className={styles.terminal__first}>{"2)"} Code for using api in javascript:</span>
                         <div className={styles.code__section__main}>
                             <div className={styles.section__header}>
                                 <span>Python</span>
