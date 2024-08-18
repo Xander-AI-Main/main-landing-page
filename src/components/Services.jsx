@@ -32,7 +32,7 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
       changeErrorState(true)
       changeLoadingState(false)
       changeState(false)
-      changeErrorDetails(err.response.data.detail)
+      changeErrorDetails(err.response.data.detail ? err.response.data.detail : "Oops! It seems you have uploaded a wrong file!")
     })
   }
 
@@ -119,7 +119,7 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
                   <img src={upload} alt="" />
                 </div>
                 <span className={styles.info}>Browse File</span>
-                <input type="file" className={styles.hiddenInput} onChange={(e) => {
+                <input type="file" className={styles.hiddenInput} accept=".zip,.csv,.json" onChange={(e) => {
                   uploadFile(e)
                 }} />
               </div>

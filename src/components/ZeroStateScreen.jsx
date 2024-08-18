@@ -4,6 +4,7 @@ import man from '../assets/man.png'
 import error from '../assets/error.png'
 
 export default function ZeroStateScreen({type, text}) {
+  console.log(text)
   return (
     <div className={styles.container} style={{height: type === "error" && "77vh"}}>
        <div className={styles.actual__shingle}>
