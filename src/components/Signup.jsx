@@ -61,7 +61,7 @@ export default function Signup() {
   const [started, setStarted] = useState(false)
 
   async function signup() {
-    if (details.email === "" || details.password === "" || details.username === "") {
+    if (details.email === "" || details.password === "" || details.username === "" || details.phone_number === "") {
       toast("Please fill all the fields", {
         position: "top-right",
         autoClose: 4000,
