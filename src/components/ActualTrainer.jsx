@@ -342,7 +342,16 @@ export default function ActualTrainer({ fileData }) {
                                                     arr[item] = parseFloat(e.target.value)
                                                     setHyperparameters(arr)
                                                 } else {
-                                                    toast("Validation size can't be greater than 0.4")
+                                                    toast("Validation size can't be greater than 0.4", {
+                                                        position: "top-right",
+                                                        autoClose: 4000,
+                                                        hideProgressBar: false,
+                                                        closeOnClick: true,
+                                                        pauseOnHover: true,
+                                                        draggable: true,
+                                                        progress: undefined,
+                                                        theme: "dark",
+                                                      });
                                                 }
                                             } else {
                                                 let arr = { ...hyperparameters }

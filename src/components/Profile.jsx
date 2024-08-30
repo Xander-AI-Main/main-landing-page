@@ -84,6 +84,11 @@ export default function Profile() {
             <input className={styles.detail__input} type="text" placeholder="Enter you email" value={data?.username ? data.username : ""} onChange={(e) => {
             }} />
           </div>
+          {data?.phone_number && <div className={styles.email}>
+            <span className={styles.ph__header}>Phone Number</span>
+            <input className={styles.detail__input} type="text" placeholder="Enter you email" value={data?.phone_number ? data.phone_number : ""} onChange={(e) => {
+            }} />
+          </div>}
         </div>
       </div>
     </div>

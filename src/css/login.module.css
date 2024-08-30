@@ -81,6 +81,33 @@
   margin-top: 0.8rem;
 }
 
+.phEmail {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+}
+
+.phToggle {
+  display: flex !important;
+  align-items: center !important;
+  margin-top: -0.1rem !important;
+}
+
+.phMenu {
+  width: 17rem !important;
+  background: #01021b !important;
+  box-shadow: 0px 0px 12px #01021b !important;
+  height: 12rem !important;
+}
+
+.phMenu::-webkit-scrollbar {
+  display: none;
+}
+
+.phItem {
+  color: white !important;
+}
+
 .email__header {
   color: #fff;
   font-family: "Gilmer Light";
@@ -90,6 +117,21 @@
   position: relative;
   top: 0.65rem;
   width: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0.8rem;
+}
+
+.phone__number__header {
+  color: #fff;
+  font-family: "Gilmer Light";
+  font-size: 16px;
+  font-weight: 700;
+  background: #01021b;
+  position: relative;
+  top: 0.65rem;
+  width: 7.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -135,6 +177,48 @@
   border-radius: 10px;
   font-size: 0.96rem;
   width: 21rem;
+}
+
+.detail__input_ph {
+  border: 1px solid #a1a1a1;
+  background: #01021b;
+  outline: none;
+  color: white;
+  padding: 0.8rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.96rem;
+  width: 16rem;
+}
+
+.detail__input__country {
+  border: 1px solid #a1a1a1;
+  background: #01021b;
+  outline: none;
+  color: white;
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.96rem;
+  width: 15.8rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+}
+
+.phNum {
+  display: flex;
+  align-items: center;
+}
+
+.phDrop {
+  border: 1px solid #a1a1a1;
+  /* padding: 0.9rem 0.6rem 0.94rem 0.6rem !important; */
+  border-radius: 10px;
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem !important;
+  height: 3.23rem;
 }
 
 .or {
