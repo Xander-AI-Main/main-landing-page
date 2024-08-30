@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../css/login.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { ColorRing } from 'react-loader-spinner'
@@ -59,6 +59,9 @@ export default function Signup() {
   })
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [started, setStarted] = useState(false)
+  const [searchParams] = useSearchParams();
+
+  // console.log(searchParams.get('cameFrom'))
 
   async function signup() {
     if (details.email === "" || details.password === "" || details.username === "" || details.phone_number === "") {
@@ -101,7 +104,11 @@ export default function Signup() {
             max_gpu_hours_allowed: 0
           })
           localStorage.setItem("userId", res.data.userId)
-          navigate("/main")
+          if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+            navigate('/contests')
+          } else {
+            navigate("/main")
+          }
           window.location.reload()
           setStarted(false)
         }).catch(err => {
@@ -134,7 +141,11 @@ export default function Signup() {
           <div className={styles.texts}>
             <span className={styles.welcome__text}>Get Started</span>
             <div className={styles.question} onClick={() => {
-              navigate("/login")
+              if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+                navigate('/login?cameFrom=contest')
+              } else {
+                navigate("/login")
+              }
             }}>
               <span className={styles.first}>Already have an account?</span>
               <span className={styles.second}>Log in</span>

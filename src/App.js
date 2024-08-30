@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Favicon from "react-favicon";
 import icon from "../src/assets/image.png";
 import { useSelector } from "react-redux";
+import Contests from "./components/Contests";
 
 function App() {
   const [data, setData] = useState({});
@@ -60,14 +61,14 @@ function App() {
 
 const AppContent = ({ data }) => {
   const location = useLocation();
-  const noLayoutPaths = ["/signup", "/login", "/pricing", "/"];
+  const noLayoutPaths = ["/signup", "/login", "/pricing", "/", "/contests"];
   const useLayout = !noLayoutPaths.includes(location.pathname);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!localStorage.getItem("userId")) {
-      navigate("/");
+    if (!localStorage.getItem("userId") && !window.location.href.includes("contests")) {
+      // navigate("/");
     }
   }, []);
 
@@ -89,6 +90,7 @@ const AppContent = ({ data }) => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/contests" element={<Contests />} />
         </Routes>
       )}
       <ToastContainer />

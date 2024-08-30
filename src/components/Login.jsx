@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from '../css/login.module.css'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 import { ColorRing } from 'react-loader-spinner'
@@ -14,6 +14,7 @@ export default function Login() {
   })
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [started, setStarted] = useState(false)
+  const [searchParams] = useSearchParams();
 
   async function login() {
     console.log(details)
@@ -55,7 +56,11 @@ export default function Login() {
             username: ''
           })
           localStorage.setItem("userId", res.data.userId)
-          navigate("/main")
+          if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+            navigate('/contests')
+          } else {
+            navigate("/main")
+          }
           window.location.reload()
           setStarted(false)
         }).catch(err => {
