@@ -7,6 +7,44 @@ import { Link, useNavigate } from 'react-router-dom'
 
 export default function Pricing() {
   const navigate = useNavigate()
+  
+  const checkouthandler = async (amount , plan, storage, cpu, gpu) => {
+    try {
+      const {data : {key}} = await axios.get("http://localhost:4000/api/getkey")
+      const { data: { order } } = await axios.post("http://localhost:4000/api/checkout", {
+        amount,
+      });
+  
+      const options = {
+       
+        key, 
+        "amount": order.amount, 
+        "currency": "USD",
+        "name": "Xander Corp", 
+        "description": "Subscription Payment",
+        "image": "https://example.com/your_logo",
+        "order_id": order.id, 
+        "callback_url": "http://localhost:4000/api/paymentVerification",
+        "prefill": {
+          "name": "Atulit Gaur", 
+          "email": "atulitpookie@gmail.com",
+          "contact": "9000090000" 
+        },
+        "notes": {
+          "address": "Xander Corporate Office"
+        },
+        "theme": {
+          "color": "#231d3e"
+        }
+      };
+  
+      const razor = new window.Razorpay(options);
+      razor.open();
+
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
+  };
 
   async function purhchase(plan, storage, cpu, gpu) {
     await axios.put('https://api.xanderco.in/core/update/', {
@@ -68,7 +106,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            purhchase('individual', 15, 15, 0)
+           checkouthandler(6)
           }}>
             <span className={styles.plan__title}>Individual</span>
             <div className={styles.text}>
@@ -100,7 +138,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            purhchase('researcher', 35, 35, 0)
+            checkouthandler(12)
           }}>
             <span className={styles.plan__title}>Researcher</span>
             <div className={styles.text}>
@@ -132,7 +170,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            purhchase('basic', 50, 75, 0)
+            checkouthandler(30)
           }}>
             <span className={styles.plan__title}>Basic</span>
             <div className={styles.text}>
@@ -164,7 +202,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            purhchase('standard', 75, 0, 75)
+            checkouthandler(100)
           }}>
             <span className={styles.plan__title}>Standard</span>
             <div className={styles.text}>
@@ -196,7 +234,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            purhchase('pro', 200, 0, 120)
+            checkouthandler(300)
           }}>
             <span className={styles.plan__title}>Professional</span>
             <div className={styles.text}>
@@ -229,13 +267,6 @@ export default function Pricing() {
           </div>
           <div className={styles.gradient__end}></div>
         </div>
-      </div>
-      <div className={styles.payment_button}>
-        <Link to="https://www.paypal.com/ncp/payment/8QW2R77EKVFGL">
-          <span className={styles.actual_button}>
-            Choose Your Plan Now
-          </span>
-        </Link>
       </div>
     </div>
   )
