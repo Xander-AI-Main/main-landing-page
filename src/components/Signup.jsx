@@ -98,16 +98,16 @@ export default function Signup() {
             password: '',
             username: '',
             phone_number: '',
-            plan: 'free',
-            max_storage_allowed: 5,
-            max_cpu_hours_allowed: 5,
-            max_gpu_hours_allowed: 0
+            // plan: 'free',
+            // max_storage_allowed: 5,
+            // max_cpu_hours_allowed: 5,
+            // max_gpu_hours_allowed: 0
           })
           localStorage.setItem("userId", res.data.userId)
           if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
             navigate('/contests')
           } else {
-            navigate("/main")
+            navigate("/pricing")
           }
           window.location.reload()
           setStarted(false)
