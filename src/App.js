@@ -27,6 +27,7 @@ import Contests from "./components/Contests";
 function App() {
   const [data, setData] = useState({});
   const { reFetchModel } = useSelector((state) => state.noPersistXanderSlice);
+
   async function getUsers() {
     await axios
       .get(
@@ -47,11 +48,13 @@ function App() {
     getUsers();
   }, []);
   console.log(reFetchModel)
+
   useEffect(() => {
     if (reFetchModel == true) {
       getUsers();
     }
   }, [reFetchModel]);
+
   return (
     <Router>
       <AppContent data={data} />
@@ -89,7 +92,7 @@ const AppContent = ({ data }) => {
           <Route path="/" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/pricing" element={<Pricing data={data}/>} />
           <Route path="/contests" element={<Contests />} />
         </Routes>
       )}

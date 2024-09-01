@@ -13,7 +13,6 @@ import ProgressBarr from './ProgressBar';
 
 export default function ActualTrainer({ fileData }) {
     const dispatch = useDispatch()
-
     const [isMl, setIsMl] = useState(false)
     const [hasStarted, setHasStarted] = useState(false)
     const [hasEnded, setHasEnded] = useState(false)

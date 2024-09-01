@@ -5,42 +5,53 @@ import circles from '../assets/Frame 12.png'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 
-export default function Pricing() {
+export default function Pricing({ data }) {
   const navigate = useNavigate()
-  
-  const checkouthandler = async (amount , plan, storage, cpu, gpu) => {
+  const checkouthandler = async (amount, plan, storage, cpu, gpu) => {
     try {
-      const {data : {key}} = await axios.get("http://localhost:4000/api/getkey")
-      const { data: { order } } = await axios.post("http://localhost:4000/api/checkout", {
+      const { data: { key } } = await axios.get("https://k4tvri7a15.execute-api.us-east-1.amazonaws.com/api/getkey");
+      const { data: { order } } = await axios.post("https://k4tvri7a15.execute-api.us-east-1.amazonaws.com/api/checkout", {
         amount,
+        notes: {
+          address: "Xander Corporate Office",
+          userId: localStorage.getItem("userId"),
+          plan: plan,
+          storage: storage,
+          cpu: cpu,
+          gpu: gpu
+        }
       });
   
       const options = {
-       
-        key, 
-        "amount": order.amount, 
+        key,
+        "amount": order.amount,
         "currency": "USD",
-        "name": "Xander Corp", 
+        "name": "Xander Corp",
         "description": "Subscription Payment",
-        "image": "https://example.com/your_logo",
-        "order_id": order.id, 
-        "callback_url": "http://localhost:4000/api/paymentVerification",
+        "image": "https://res.cloudinary.com/ddvajyjou/image/upload/v1725183493/WhatsApp_Image_2024-07-28_at_14.46.39_241b7e61_y69biw.jpg",
+        "order_id": order.id,
+        "callback_url": "https://k4tvri7a15.execute-api.us-east-1.amazonaws.com/api/paymentVerification",
         "prefill": {
-          "name": "Atulit Gaur", 
-          "email": "atulitpookie@gmail.com",
-          "contact": "9000090000" 
+          "name": data.username ? data.username : "",
+          "email": data.email ? data.email : "",
+          "contact": data.phone_number ? data.phone_number : ""
         },
         "notes": {
-          "address": "Xander Corporate Office"
+          "address": "Xander Corporate Office",
+          "userId": localStorage.getItem("userId"),
+          "plan": plan,
+          "storage": storage,
+          "cpu": cpu,
+          "gpu": gpu
         },
         "theme": {
           "color": "#231d3e"
-        }
+        },
       };
   
       const razor = new window.Razorpay(options);
       razor.open();
-
+  
     } catch (error) {
       console.error("Error during checkout:", error);
     }
@@ -106,7 +117,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-           checkouthandler(6)
+            checkouthandler(6, 'individual', 15, 15, 0)
           }}>
             <span className={styles.plan__title}>Individual</span>
             <div className={styles.text}>
@@ -138,7 +149,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(12)
+            checkouthandler(12, 'researcher', 35, 35, 0)
           }}>
             <span className={styles.plan__title}>Researcher</span>
             <div className={styles.text}>
@@ -170,7 +181,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(30)
+            checkouthandler(30, 'basic', 50, 75, 0)
           }}>
             <span className={styles.plan__title}>Basic</span>
             <div className={styles.text}>
@@ -202,7 +213,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(100)
+            checkouthandler(100, 'standard', 75, 0, 75)
           }}>
             <span className={styles.plan__title}>Standard</span>
             <div className={styles.text}>
@@ -234,7 +245,7 @@ export default function Pricing() {
             </div>
           </div>
           <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(300)
+            checkouthandler(300, 'pro', 200, 0, 120)
           }}>
             <span className={styles.plan__title}>Professional</span>
             <div className={styles.text}>
