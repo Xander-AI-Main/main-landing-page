@@ -19,7 +19,7 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
     changeLoadingState(true)
     setDisplay("none")
 
-    await axios.post('https://api.xanderco.in/core/upload/', formData, {
+    await axios.post('http://127.0.0.1:8000/core/upload/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
