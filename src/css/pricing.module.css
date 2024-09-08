@@ -163,3 +163,30 @@
   margin-top: -5rem;
 }
 
+.navbar_ {
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: "Bruno Ace", sans-serif;
+  color: #fff;
+  cursor: pointer;
+  padding: 1.5rem 2.5rem;
+}
+
+.option__btn {
+  cursor: pointer;
+  width: 11rem;
+  height: 3rem;
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.04rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  border: none;
+}

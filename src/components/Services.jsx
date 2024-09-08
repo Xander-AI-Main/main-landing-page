@@ -62,6 +62,7 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
           </span>
         </Modal.Header>
         <Modal.Body className={styles.modal__body}>
+          <span className={styles.info__h}>Check out <a href="https://youtu.be/K1smYYkJVP0">this</a> tutorial to understand the working of Xander!</span>
           <span className={styles.info__h}>Please read the following documentation carefully and checkout the example datasets:</span>
           <div className={styles.info__main}>
             <div className={styles.info__header}>{'1)'} Regression</div>

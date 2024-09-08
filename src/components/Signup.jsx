@@ -49,9 +49,9 @@ export default function Signup() {
     password: '',
     username: '',
     phone_number: '',
-    plan: 'free',
-    max_storage_allowed: 5,
-    max_cpu_hours_allowed: 5,
+    plan: '',
+    max_storage_allowed: 0,
+    max_cpu_hours_allowed: 0,
     max_gpu_hours_allowed: 0,
     // purchase_date: new Date(),
     // has_expired: false,
@@ -98,10 +98,10 @@ export default function Signup() {
             password: '',
             username: '',
             phone_number: '',
-            // plan: 'free',
-            // max_storage_allowed: 5,
-            // max_cpu_hours_allowed: 5,
-            // max_gpu_hours_allowed: 0
+            plan: '',
+            max_storage_allowed: 0,
+            max_cpu_hours_allowed: 0,
+            max_gpu_hours_allowed: 0
           })
           localStorage.setItem("userId", res.data.userId)
           if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {

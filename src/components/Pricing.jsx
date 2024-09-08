@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../css/pricing.module.css'
 import tick from '../assets/a.svg'
 import circles from '../assets/Frame 12.png'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function Pricing({ data }) {
   const navigate = useNavigate()
@@ -21,7 +22,7 @@ export default function Pricing({ data }) {
           gpu: gpu
         }
       });
-  
+
       const options = {
         key,
         "amount": order.amount,
@@ -48,22 +49,37 @@ export default function Pricing({ data }) {
           "color": "#231d3e"
         },
       };
-  
+
       const razor = new window.Razorpay(options);
       razor.open();
-  
+
     } catch (error) {
       console.error("Error during checkout:", error);
     }
   };
 
+  const [chosen, setChosen] = useState("")
+
+  useEffect(() => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,  
+      behavior: 'smooth'  
+    });
+  }, [chosen]);
+
   async function purhchase(plan, storage, cpu, gpu) {
+    const purchase_date = new Date();
+    let expired_date = new Date(purchase_date);
+    expired_date.setMonth(purchase_date.getMonth() + 1);
+
     await axios.put('https://api.xanderco.in/core/update/', {
       userId: localStorage.getItem("userId"),
       plan: plan,
       max_storage_allowed: storage,
       max_cpu_hours_allowed: cpu,
-      max_gpu_hours_allowed: gpu
+      max_gpu_hours_allowed: gpu,
+      purchase_date: purchase_date,
+      expired_date: expired_date
     }).then(res => {
       console.log(res.data)
       navigate('/main')
@@ -73,8 +89,60 @@ export default function Pricing({ data }) {
     })
   }
 
+  console.log(data)
+
+  const handleSelectPlan = () => {
+    if (chosen == "free") {
+      if(data.plan === "free") {
+        toast("You're already on the free trial!", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else if(data.plan == "individual" || data.plan == "researcher" || data.plan == "basic" || data.plan == "standard" || data.plan == "pro"){
+        toast("Can't downgrade the plan to the free trial!", {
+          position: "top-right",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        purhchase('free', 5, 5, 0)
+      }
+    } 
+    else if(chosen == "individual") {
+      checkouthandler(6, 'individual', 15, 15, 0)
+    }
+    else if(chosen == "researcher") {
+      checkouthandler(12, 'researcher', 35, 35, 0)
+    }
+    else if(chosen == "basic") {
+      checkouthandler(30, 'basic', 50, 75, 0)
+    }
+    else if(chosen == "standard") {
+      checkouthandler(100, 'standard', 75, 0, 75)
+    }
+    else if(chosen == "pro") {
+      checkouthandler(300, 'pro', 200, 0, 120)
+    }
+  }
+
   return (
     <div className={styles.contanier}>
+      <div className={styles.navbar_} onClick={() => {
+        if(data.plan !== "") {
+          navigate('/main')
+        }
+      }}>Xander</div>
       <div className={styles.content}>
         <div className={styles.main__header}>
           Choose your plan
@@ -84,8 +152,9 @@ export default function Pricing({ data }) {
         </div>
         <div className={styles.all__pricing}>
           <div className={styles.gradient}></div>
-          <div className={styles.current__pricing} onClick={() => {
-            purhchase('free', 5, 5, 0)
+          <div className={styles.current__pricing} style={{ border: chosen === 'free' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // purhchase('free', 5, 5, 0)
+            setChosen('free')
           }}>
             <span className={styles.plan__title}>Free Trial</span>
             <div className={styles.text}>
@@ -116,8 +185,9 @@ export default function Pricing({ data }) {
               </div>
             </div>
           </div>
-          <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(6, 'individual', 15, 15, 0)
+          <div className={styles.current__pricing} style={{ border: chosen === 'individual' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // checkouthandler(6, 'individual', 15, 15, 0)
+            setChosen('individual')
           }}>
             <span className={styles.plan__title}>Individual</span>
             <div className={styles.text}>
@@ -148,10 +218,11 @@ export default function Pricing({ data }) {
               </div>
             </div>
           </div>
-          <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(12, 'researcher', 35, 35, 0)
+          <div className={styles.current__pricing} style={{ border: chosen === 'researcher' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // checkouthandler(12, 'researcher', 35, 35, 0)
+            setChosen('researcher')
           }}>
-            <span className={styles.plan__title}>Researcher</span>
+            <span className={styles.plan__title} >Researcher</span>
             <div className={styles.text}>
               <img src={tick} alt="" />
               <span className={styles.details}>35 GB Storage</span>
@@ -180,8 +251,9 @@ export default function Pricing({ data }) {
               </div>
             </div>
           </div>
-          <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(30, 'basic', 50, 75, 0)
+          <div className={styles.current__pricing} style={{ border: chosen === 'basic' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // checkouthandler(30, 'basic', 50, 75, 0)
+            setChosen('basic')
           }}>
             <span className={styles.plan__title}>Basic</span>
             <div className={styles.text}>
@@ -212,8 +284,9 @@ export default function Pricing({ data }) {
               </div>
             </div>
           </div>
-          <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(100, 'standard', 75, 0, 75)
+          <div className={styles.current__pricing} style={{ border: chosen === 'standard' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // checkouthandler(100, 'standard', 75, 0, 75)
+            setChosen('standard')
           }}>
             <span className={styles.plan__title}>Standard</span>
             <div className={styles.text}>
@@ -244,8 +317,9 @@ export default function Pricing({ data }) {
               </div>
             </div>
           </div>
-          <div className={styles.current__pricing} onClick={() => {
-            checkouthandler(300, 'pro', 200, 0, 120)
+          <div className={styles.current__pricing} style={{ border: chosen === 'pro' && '0.5px solid rgb(255 255 255)' }} onClick={() => {
+            // checkouthandler(300, 'pro', 200, 0, 120)
+            setChosen('pro')
           }}>
             <span className={styles.plan__title}>Professional</span>
             <div className={styles.text}>
@@ -278,6 +352,7 @@ export default function Pricing({ data }) {
           </div>
           <div className={styles.gradient__end}></div>
         </div>
+        {chosen !== "" && <button className={styles.option__btn} onClick={handleSelectPlan}>Choose {chosen}</button>}
       </div>
     </div>
   )

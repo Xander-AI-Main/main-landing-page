@@ -7,6 +7,7 @@ import model from '../assets/model.svg'
 import dataset from '../assets/dataset.svg'
 import menu from '../assets/menu.svg'
 import { useNavigate } from 'react-router-dom'
+import pencil from '../assets/pencil.png'
 
 export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
   const [collapsed, setCollpased] = useState(false)
@@ -56,7 +57,12 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
           </div>
         </div>
         {collapsed ? <div className={styles.below__options}>
-          <span>{data.plan && `${data.plan.charAt(0).toUpperCase()}${data.plan.slice(1)}`} Plan</span>
+          <div className={styles.plan__details}>
+            <span>{data.plan && `${data.plan.charAt(0).toUpperCase()}${data.plan.slice(1)}`} Plan</span>
+            <img src={pencil} alt="" onClick={() => {
+              navigate('/pricing')
+            }}/>
+          </div>
           <span>{data.s3_storage_used && data.s3_storage_used.toFixed(2)} / {data.max_storage_allowed ? data.max_storage_allowed : 0} GB Used</span>
           <span>{(data.plan === "free" || data.plan === "individual" || data.plan === "researcher" || data.plan === "basic") ? (data.cpu_hours_used && data.cpu_hours_used.toFixed(2)) : (data.gpu_hours_used && data.gpu_hours_used.toFixed(2))} / {data.max_gpu_hours_allowed > 0 ? data.max_gpu_hours_allowed : data.max_cpu_hours_allowed} Hours Used</span>
         </div>

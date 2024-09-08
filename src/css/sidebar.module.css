@@ -103,6 +103,26 @@
     margin-top: 15rem;
 }
 
+.plan__details {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.plan__details > img {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+}
+
+.below__options > div > span {
+    font-size: 1.35rem;
+    cursor: pointer;
+    font-family: 'Brockmann';
+    color: #C0B7E8;
+}
+
 .below__options > span {
     font-size: 1.35rem;
     margin-bottom: 1rem;

@@ -113,7 +113,6 @@
   margin-top: 1.5rem;
 }
 
-
 .modal__main {
   width: 47rem !important;
   font-family: "Roboto" !important;
@@ -137,9 +136,11 @@
   width: 48rem !important;
   height: 70vh;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
 }
 
-.modal__body::-webkit-scrollbar{
+.modal__body::-webkit-scrollbar {
   display: none;
 }
 
