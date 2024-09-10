@@ -107,7 +107,8 @@ export default function Signup() {
           if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
             navigate('/contests')
           } else {
-            navigate("/pricing")
+            // navigate("/pricing")
+            navigate("/main")
           }
           window.location.reload()
           setStarted(false)
