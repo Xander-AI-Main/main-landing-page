@@ -17,41 +17,42 @@ export default function Contests() {
             "rewards": "$300",
             "max": 4,
             "min": 2,
-            "link": "",
+            "link": "https://forms.gle/PAE94aEiQt1Wn3qB7",
             "contestType": "Team Contest"
         },
         {
             "rewards": "$100",
             "max": 2,
             "min": 1,
-            "link": "",
+            "link": "https://forms.gle/PAE94aEiQt1Wn3qB7",
             "contestType": "Team Contest"
         },
         {
             "rewards": "$30",
             "max": 1,
             "min": 1,
-            "link": "",
+            "link": "https://forms.gle/ethRikV73u368WpD7",
             "contestType": "Individual Contest"
         },
         {
             "rewards": "$12",
             "max": 1,
             "min": 1,
-            "link": "",
+            "link": "https://forms.gle/ethRikV73u368WpD7",
             "contestType": "Individual Contest"
         },
     ]
 
     const guidelines = [
         "Participants must sign up on our platform to be eligible.",
-        "The contest starts on [Start Date] and ends on [End Date].",
+        // "The contest starts on [Start Date] and ends on [End Date].",
         "All entries must be submitted by [Submission Deadline].",
         "Complete the required tasks using our no-code platform (e.g., upload a dataset, train a model, etc.).",
         "Submit your contest entry via the provided link on our website.",
         "The winner(s) will receive the said rewards.",
-        "Prizes will be distributed within [timeframe] after the contest ends.",
-        "Winners will be announced on [Announcement Date] via email and on our social media channels."
+        // "Prizes will be distributed within [timeframe] after the contest ends.",
+        // "Winners will be announced on [Announcement Date] via email and on our social media channels."
+        "Winners will be announced via email and on our social media channels."
     ]
 
     return (

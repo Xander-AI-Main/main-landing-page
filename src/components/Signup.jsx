@@ -57,6 +57,7 @@ export default function Signup() {
     // has_expired: false,
     // expired_date: future
   })
+  
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [started, setStarted] = useState(false)
   const [searchParams] = useSearchParams();
