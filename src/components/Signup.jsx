@@ -49,10 +49,10 @@ export default function Signup() {
     password: '',
     username: '',
     phone_number: '',
-    plan: 'free',
-    max_storage_allowed: 5,
-    max_cpu_hours_allowed: 5,
-    max_gpu_hours_allowed: 5,
+    plan: '',
+    max_storage_allowed: 0,
+    max_cpu_hours_allowed: 0,
+    max_gpu_hours_allowed: 0,
     // purchase_date: new Date(),
     // has_expired: false,
     // expired_date: future
@@ -108,8 +108,8 @@ export default function Signup() {
           if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
             navigate('/contests')
           } else {
-            // navigate("/pricing")
-            navigate("/main")
+            navigate("/pricing")
+            // navigate("/main")
           }
           window.location.reload()
           setStarted(false)
