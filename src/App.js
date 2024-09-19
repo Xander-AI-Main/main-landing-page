@@ -31,7 +31,7 @@ function App() {
   async function getUsers() {
     await axios
       .get(
-        `https://api.xanderco.in/core/update/?userId=${localStorage.getItem(
+        `https://apiv3.xanderco.in/core/update/?userId=${localStorage.getItem(
           "userId"
         )}`
       )

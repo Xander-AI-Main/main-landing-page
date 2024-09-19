@@ -10,7 +10,7 @@ export default function Profile() {
   const [data, setData] = useState({})
 
   async function getUsers() {
-    await axios.get(`https://api.xanderco.in/core/update/?userId=${localStorage.getItem("userId")}`).then(res => {
+    await axios.get(`https://apiv3.xanderco.in/core/update/?userId=${localStorage.getItem("userId")}`).then(res => {
       console.log(res.data)
       setData(res.data)
     }).catch(err => {
@@ -32,7 +32,7 @@ export default function Profile() {
     await axios.put(`https://s3-api-uat.idesign.market/api/upload`, files)
       .then(async function (response) {
         console.log(response?.data?.locations[0])
-        await axios.put('https://api.xanderco.in/core/update/', {
+        await axios.put('https://apiv3.xanderco.in/core/update/', {
           userId: localStorage.getItem("userId"),
           photo: response?.data?.locations[0],
         }).then(res => {

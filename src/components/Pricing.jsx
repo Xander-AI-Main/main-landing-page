@@ -72,7 +72,7 @@ export default function Pricing({ data }) {
     let expired_date = new Date(purchase_date);
     expired_date.setMonth(purchase_date.getMonth() + 1);
 
-    await axios.put('https://api.xanderco.in/core/update/', {
+    await axios.put('https://apiv3.xanderco.in/core/update/', {
       userId: localStorage.getItem("userId"),
       plan: plan,
       max_storage_allowed: storage,

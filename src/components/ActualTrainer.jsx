@@ -141,7 +141,7 @@ export default function ActualTrainer({ fileData }) {
             hyperparameters: hyperparameters
         };
 
-        await axios.post('https://api.xanderco.in/core/train/', trainingData).then((res) => {
+        await axios.post('https://apiv3.xanderco.in/core/train/', trainingData).then((res) => {
             console.log(res.data)
             setFinalModel(res.data)
             setProgress(res.data.epoch_data ? res.data.epoch_data : [])
@@ -155,7 +155,7 @@ export default function ActualTrainer({ fileData }) {
     };
 
     useEffect(() => {
-        const newSocket = new WebSocket(`wss://api.xanderco.in/ws/data/${userId}/`);
+        const newSocket = new WebSocket(`wss://apiv3.xanderco.in/ws/data/${userId}/`);
 
         setSocket(newSocket);
 

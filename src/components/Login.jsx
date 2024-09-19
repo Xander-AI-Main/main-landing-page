@@ -45,7 +45,7 @@ export default function Login() {
         });
       } else {
         setStarted(true)
-        await axios.post("https://api.xanderco.in/core/login/", {
+        await axios.post("https://apiv3.xanderco.in/core/login/", {
           "username_or_email": details.email === "" ? details.username : details.email,
           "password": details.password
         }).then(res => {

@@ -39,7 +39,7 @@ export default function MainLandingPage({ collapsed }) {
 
   async function getUsers() {
     await axios
-      .get(`https://api.xanderco.in/core/update/?userId=${localStorage.getItem("userId")}`)
+      .get(`https://apiv3.xanderco.in/core/update/?userId=${localStorage.getItem("userId")}`)
       .then((res) => {
         console.log(res.data);
         setData(res.data);

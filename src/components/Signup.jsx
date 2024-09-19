@@ -92,7 +92,7 @@ export default function Signup() {
         setStarted(true)
         let arr = {...details}
         arr["phone_number"] = selected.code + arr["phone_number"]
-        await axios.post("https://api.xanderco.in/core/signup/signup//", arr).then(res => {
+        await axios.post("https://apiv3.xanderco.in/core/signup/signup//", arr).then(res => {
           console.log(res.data)
           setDetails({
             email: '',
