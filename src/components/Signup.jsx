@@ -7,6 +7,8 @@ import { ColorRing } from 'react-loader-spinner'
 import ReactFlagsSelect from "react-flags-select";
 import { useCountries } from "use-react-countries";
 import { Dropdown } from 'react-bootstrap'
+import { sendSignInLinkToEmail } from "firebase/auth";
+import { auth } from '../firebase/firebase';
 
 export default function Signup() {
   const navigate = useNavigate()
@@ -14,6 +16,37 @@ export default function Signup() {
   const { countries } = useCountries();
   const [countryCode, setCountryCode] = useState("+91");
   const [search, setSearch] = useState("")
+
+  const sendLoginLink = (email) => {
+    let actionCodeSettings = {
+      url: 'https://platform.xanderco.in/pricing',  
+      handleCodeInApp: true,  
+    };
+    if (searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+      // navigate('/contests')
+      actionCodeSettings = {
+        url: 'https://platform.xanderco.in/contests',  
+        handleCodeInApp: true,  
+      };
+    } else {
+      // navigate("/pricing")
+      actionCodeSettings = {
+        url: 'https://platform.xanderco.in/pricing',  
+        handleCodeInApp: true,  
+      };
+    }
+
+    sendSignInLinkToEmail(auth, email, actionCodeSettings)
+      .then(() => {
+        window.localStorage.setItem('emailForSignIn', email);
+        // alert('Verification link sent to your email!');
+        navigate("/confirmation")
+        // window.location.reload()
+      })
+      .catch((error) => {
+        console.error('Error sending email verification link:', error);
+      });
+  };
 
   const returnFlag = (code) => {
     countries?.map((item) => {
@@ -57,7 +90,7 @@ export default function Signup() {
     // has_expired: false,
     // expired_date: future
   })
-  
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const [started, setStarted] = useState(false)
   const [searchParams] = useSearchParams();
@@ -90,10 +123,19 @@ export default function Signup() {
         });
       } else {
         setStarted(true)
-        let arr = {...details}
+        let arr = { ...details }
         arr["phone_number"] = selected.code + arr["phone_number"]
         await axios.post("https://apiv3.xanderco.in/core/signup/signup//", arr).then(res => {
           console.log(res.data)
+
+          localStorage.setItem("userId", res.data.userId)
+          // if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+          //   navigate('/contests')
+          // } else {
+          //   navigate("/pricing")
+          //   // navigate("/main")
+          // }
+          sendLoginLink(details.email)
           setDetails({
             email: '',
             password: '',
@@ -104,14 +146,6 @@ export default function Signup() {
             max_cpu_hours_allowed: 0,
             max_gpu_hours_allowed: 0
           })
-          localStorage.setItem("userId", res.data.userId)
-          if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
-            navigate('/contests')
-          } else {
-            navigate("/pricing")
-            // navigate("/main")
-          }
-          window.location.reload()
           setStarted(false)
         }).catch(err => {
           console.log(err)
@@ -131,8 +165,6 @@ export default function Signup() {
     }
   }
 
-  console.log(countries)
-
   return (
     <div className={styles.container}>
       <div className={styles.navbar__content}>
@@ -143,7 +175,7 @@ export default function Signup() {
           <div className={styles.texts}>
             <span className={styles.welcome__text}>Get Started</span>
             <div className={styles.question} onClick={() => {
-              if(searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
+              if (searchParams.get('cameFrom') && searchParams.get('cameFrom') == "contest") {
                 navigate('/login?cameFrom=contest')
               } else {
                 navigate("/login")
@@ -197,15 +229,15 @@ export default function Signup() {
                   className={styles.phMenu}
                 >
                   <input className={styles.detail__input__country} type="text" placeholder="Search" value={search} onChange={(e) => {
-                  setSearch(e.target.value)
-                }} />
+                    setSearch(e.target.value)
+                  }} />
                   {countries && countries?.length > 0 && countries?.filter((elem) => {
                     return elem?.name?.toLowerCase()?.includes(search.toLowerCase())
                   }).map((item) => {
                     return (
                       item.countryCallingCode !== "" && (
                         <Dropdown.Item
-                        className={styles.phItem}
+                          className={styles.phItem}
                           onClick={() => {
                             setSelected({
                               code: item.countryCallingCode,

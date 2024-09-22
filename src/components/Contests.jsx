@@ -3,8 +3,28 @@ import { useNavigate } from 'react-router-dom'
 import styles from '../css/contests.module.css'
 import star from '../assets/star.svg'
 import { BiChevronDown } from 'react-icons/bi'
+import { signInWithEmailLink, isSignInWithEmailLink  } from "firebase/auth";
+import { auth } from '../firebase/firebase'; 
 
 export default function Contests() {
+    useEffect(() => {
+        if (isSignInWithEmailLink(auth, window.location.href)) {
+          let email = window.localStorage.getItem('emailForSignIn');
+          if (!email) {
+            email = window.prompt('Please provide your email for confirmation');
+          }
+    
+          signInWithEmailLink(auth, email, window.location.href)
+            .then((result) => {
+              console.log("User signed in:", result.user);
+              window.localStorage.removeItem('emailForSignIn');
+            })
+            .catch((error) => {
+              console.error('Error signing in with email link:', error);
+            });
+        }
+      }, []);
+      
     const navigate = useNavigate()
     const [current, setCurrent] = useState(-1)
     useEffect(() => {

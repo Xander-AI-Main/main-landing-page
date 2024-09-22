@@ -5,8 +5,28 @@ import circles from '../assets/Frame 12.png'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { signInWithEmailLink, isSignInWithEmailLink  } from "firebase/auth";
+import { auth } from '../firebase/firebase'; 
 
 export default function Pricing({ data }) {
+    useEffect(() => {
+      if (isSignInWithEmailLink(auth, window.location.href)) {
+        let email = window.localStorage.getItem('emailForSignIn');
+        if (!email) {
+          email = window.prompt('Please provide your email for confirmation');
+        }
+  
+        signInWithEmailLink(auth, email, window.location.href)
+          .then((result) => {
+            console.log("User signed in:", result.user);
+            window.localStorage.removeItem('emailForSignIn');
+          })
+          .catch((error) => {
+            console.error('Error signing in with email link:', error);
+          });
+      }
+    }, []);
+
   const navigate = useNavigate()
   const checkouthandler = async (amount, plan, storage, cpu, gpu) => {
     try {

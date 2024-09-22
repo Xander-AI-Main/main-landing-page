@@ -66,7 +66,6 @@ export default function MainLandingPage({ collapsed }) {
 
   return (
     <div className={styles.container}>
-      
       <div className={styles.content}>
         {hasTrainingStarted ? (
           <Trainer fileData={fileData} />

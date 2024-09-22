@@ -23,6 +23,7 @@ import Favicon from "react-favicon";
 import icon from "../src/assets/image.png";
 import { useSelector } from "react-redux";
 import Contests from "./components/Contests";
+import AfterVeri from "./components/AfterVeri";
 
 function App() {
   const [data, setData] = useState({});
@@ -64,7 +65,7 @@ function App() {
 
 const AppContent = ({ data }) => {
   const location = useLocation();
-  const noLayoutPaths = ["/signup", "/login", "/pricing", "/", "/contests"];
+  const noLayoutPaths = ["/signup", "/login", "/pricing", "/", "/contests", '/confirmation'];
   const useLayout = !noLayoutPaths.includes(location.pathname);
 
   const navigate = useNavigate();
@@ -94,6 +95,7 @@ const AppContent = ({ data }) => {
           <Route path="/login" element={<Login />} />
           <Route path="/pricing" element={<Pricing data={data}/>} />
           <Route path="/contests" element={<Contests />} />
+          <Route path="/confirmation" element={<AfterVeri />} />
         </Routes>
       )}
       <ToastContainer />
