@@ -102,8 +102,9 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
           </div>
           <div className={styles.info__main}>
             <div className={styles.info__header}>{'5)'} Chatbot Creation</div>
-            <span>• Dataset format will of JSON, i.e, user upload a json file. </span>
-            <span>• Users will provide a json file, and in that json, for each object there will be two keys, namely question and answer.</span>
+            <span>• Dataset format will be of PDF or JSON </span>
+            {/* <span>• Dataset format will be of JSON, i.e, user upload a json file. </span> */}
+            <span>• For JSON, users will provide a json file, and in that json, for each object there will be two keys, namely question and answer.</span>
             <span className={styles.download} onClick={() => {
               download(urls["chatbot"])
             }}>Download example</span>
