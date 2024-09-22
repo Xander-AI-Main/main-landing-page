@@ -120,8 +120,8 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
                   <img src={upload} alt="" />
                 </div>
                 <span className={styles.info}>Browse File</span>
-                <input type="file" className={styles.hiddenInput} accept=".zip,.csv,.json" onChange={(e) => {
-                  uploadFile(e)
+                <input type="file" className={styles.hiddenInput} accept=".zip,.csv,.json,.pdf" onChange={(e) => {
+                  uploadFile(e);
                 }} />
               </div>
             </div>

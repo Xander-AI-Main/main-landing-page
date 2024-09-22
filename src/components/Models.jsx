@@ -201,7 +201,7 @@ export default function Models({ data }) {
                                             {item?.modelUrl !== "" ? <td style={{ width: '25%' }}>{item?.modelUrl && item?.modelUrl?.split("/")[item?.modelUrl?.split("/").length - 1].substring(0, 23)}...</td> 
                                             :
                                             <td style={{ width: '25%' }}>{item?.datasetUrl && item?.datasetUrl?.split("/")[item?.datasetUrl?.split("/").length - 1].substring(0, 23)}...</td>    
-                                        }
+                                    }
                                             <td>{item?.task && item?.task.charAt(0).toUpperCase() + item?.task.slice(1)}</td>
                                             <td>{item?.modelArch && item?.modelArch[0] && item?.modelArch[0].length > 1 ? "Deep Learning" : "Machine Learning"}</td>
                                             <td className={styles.download} style={{ padding: '1.1rem 1rem 1.1rem 3rem' }} onClick={() => {
