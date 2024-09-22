@@ -391,9 +391,9 @@ export default function ActualTrainer({ fileData }) {
                             }
                         </div>}
                         {hasEnded && <div className={styles.training__btns}>
-                            <div className={styles.download__model} onClick={() => {
+                        {!finalModel?.datasetUrl?.includes("pdf") && <div className={styles.download__model} onClick={() => {
                                 download()
-                            }}>Download Model</div>
+                            }}>Download Model</div>}
                             <div className={styles.copy__code} onClick={() => {
                                 // copyToClipboard()
                                 setShow(true)
