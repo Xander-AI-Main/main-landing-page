@@ -12,6 +12,16 @@
   margin-top: 2rem;
 }
 
+.first {
+  /* height: 78vh;
+  overflow-y: scroll; */
+  padding-bottom: 2rem;
+}
+
+.first::-webkit-scrollbar{
+  display: none;
+}
+
 .service {
   display: flex;
   flex-direction: column;
@@ -43,8 +53,8 @@
   padding-right: 0;
   margin-right: 0;
   display: flex;
-  margin: auto;
-  justify-content: center;
+  /* margin: auto; */
+  /* justify-content: center; */
   cursor: pointer;
 }
 
@@ -64,23 +74,56 @@
 .info {
   font-size: 1.2rem;
   font-weight: 400;
-  color: #fff;
+  color: #c0b7e8;
   font-family: "Brockmann";
   border-radius: 50px;
-  background: rgba(192, 183, 232, 0.6);
-  padding: 0.6rem 2.5rem;
+  /* background: rgba(192, 183, 232, 0.6); */
+  /* padding: 0.6rem 2.5rem; */
+}
+
+.all__services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 92%;
+  margin: auto;
 }
 
 .mainService {
   display: flex;
-  width: 97.5%;
-  height: 16rem;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  width: 16rem;
+  height: 21rem;
+  justify-content: space-between;
+  padding: 1.35rem 1rem 1.2rem 2rem;
   border-radius: 30px;
   background: rgba(217, 217, 217, 0.2);
   /* backdrop-filter: blur(25.200000762939453px); */
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
+  margin-right: 3rem;
+}
+
+.sub__serv {
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service__header {
+  color: #c0b7e8;
+  font-family: "Gilmer Light";
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.service__info {
+  color: #c4bfde;
+  font-family: "Gilmer Light";
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-top: 1.2rem;
+  width: 100%;
 }
 
 .subService {
@@ -95,10 +138,10 @@
 
 .choose {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 6.6rem;
+  flex-direction: row;
+  /* height: 6.6rem; */
   justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
 .upload__header {
@@ -106,6 +149,12 @@
   font-family: "Gilmer Light";
   font-size: 24px;
   font-weight: 600;
+}
+
+.upload__icon > img {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.75rem;
 }
 
 .soon__services {
@@ -172,9 +221,9 @@
 }
 
 .documentation {
-  position: absolute;
-  right: -2.5rem;
-  top: 80vh;
+  position: fixed;
+  right: 2.5rem;
+  top: 89vh;
   cursor: pointer;
 }
 
@@ -216,4 +265,68 @@
   .documentation {
     right: 0.5rem;
   }
+}
+
+.mainService1 {
+  display: flex;
+  width: 97.5%;
+  height: 16rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background: rgba(217, 217, 217, 0.2);
+  /* backdrop-filter: blur(25.200000762939453px); */
+  margin-top: 1.5rem;
+}
+
+.uploadLabel1 {
+  width: 100%;
+  padding-right: 0;
+  margin-right: 0;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.subService {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  border-radius: 20px;
+  border: 2px dashed #c0b7e8;
+  height: 13rem;
+}
+
+.choose1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6.6rem;
+  justify-content: space-between;
+}
+
+  
+.info1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Brockmann";
+  border-radius: 50px;
+  background: rgba(192, 183, 232, 0.6);
+  padding: 0.6rem 2.5rem;
+}
+
+.upload__icon1 > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.go__back {
+  width: 24px;
+  height: 24px;
+  margin-right: 1.8rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
 }

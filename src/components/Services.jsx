@@ -5,10 +5,12 @@ import axios from 'axios'
 import { urls } from '../constants/constants'
 import { Modal } from 'react-bootstrap'
 import info from '../assets/info.png'
+import back from '../assets/back.png'
 
 export default function Services({ changeState, changeLoadingState, changeFileData, collapsed, changeErrorState, changeErrorDetails }) {
   const [display, setDisplay] = useState("flex")
   const [show, setShow] = useState(localStorage.getItem("hasAgreed") ? !localStorage.getItem("hasAgreed") : true)
+  const [step, setStep] = useState(0)
 
   async function uploadFile(e) {
     const file = e.target.files[0];
@@ -46,6 +48,45 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
     link.click();
     link.remove();
   }
+
+  const services = [
+    {
+      "name": "Regression",
+      "info": "This includes price prediction, sales forecasting, demand estimation, medical outcome prediction, and environmental impact assessment etc.",
+      "action": "Upload CSV",
+      "allow": ".csv"
+    },
+    {
+      "name": "Classification",
+      "info": "It is implemented for email categorization, fraud detection, medical diagnosis, segmentation, and image recognition and much more.",
+      "action": "Upload CSV",
+      "allow": ".csv"
+    },
+    {
+      "name": "Textual",
+      "info": "We offer sentiment analysis, topic classification, and spam detection for customer feedback analysis, comment moderation etc.",
+      "action": "Upload CSV",
+      "allow": ".csv"
+    },
+    {
+      "name": "Chatbots",
+      "info": "Covers services like customer service automation, virtual personal assistants, healthcare triage, e-learning support, and e-commerce solutions etc.",
+      "action": "Upload PDF/JSON",
+      "allow": ".pdf,.json"
+    },
+    {
+      "name": "Image Labelling",
+      "info": "Application lies in healthcare for disease detection, agriculture for crop monitoring, retail for inventory management, security for surveillance etc.",
+      "action": "Upload ZIP",
+      "allow": ".zip"
+    },
+    {
+      "name": "Anomaly Detection",
+      "info": "Applications include network security, manufacturing quality control, predictive maintenance, credit scoring etc.",
+      "action": "Upload CSV",
+      "allow": ".csv"
+    },
+  ]
 
   return (
     <div className={styles.container} style={{ display: display }}>
@@ -112,40 +153,70 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
         </Modal.Body>
       </Modal>
       <div className={styles.first}>
-        <span className={styles.upload__header}>Upload Dataset</span>
-        <div className={styles.mainService}>
-          <label className={styles.uploadLabel}>
-            <div className={styles.subService}>
-              <div className={styles.choose}>
-                <div className={styles.upload__icon}>
-                  <img src={upload} alt="" />
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          {step === 1 && <img src={back} alt="" className={styles.go__back}/>}
+          <span className={styles.upload__header}>Upload Dataset</span>
+        </div>
+        {step === 1 ? <div className={styles.all__services}>
+          {
+            services?.map((item, index) => {
+              return (
+                <div className={styles.mainService} key={index}>
+                  <span className={styles.service__header}>{item.name}</span>
+                  <div className={styles.sub__serv}>
+                    <span className={styles.service__info}>{item.info}</span>
+                    <label className={styles.uploadLabel}>
+                      <div className={styles.choose}>
+                        <div className={styles.upload__icon}>
+                          <img src={upload} alt="" />
+                        </div>
+                        <span className={styles.info}>{item.action}</span>
+                        <input type="file" className={styles.hiddenInput} accept={item.allow} onChange={(e) => {
+                          uploadFile(e);
+                        }} />
+                      </div>
+                    </label>
+                  </div>
                 </div>
-                <span className={styles.info}>Browse File</span>
-                <input type="file" className={styles.hiddenInput} accept=".zip,.csv,.json,.pdf" onChange={(e) => {
+              )
+            })
+          }
+        </div> :
+          <div className={styles.main__service}>
+            <div className={styles.mainService1} onClick={() => {
+              setStep(1)
+            }}>
+              <label className={styles.uploadLabel1}>
+                <div className={styles.subService}>
+                  <div className={styles.choose1}>
+                    <div className={styles.upload__icon1}>
+                      <img src={upload} alt="" />
+                    </div>
+                    <span className={styles.info1}>Browse Services</span>
+                    {/* <input type="file" className={styles.hiddenInput} accept=".zip,.csv,.json,.pdf" onChange={(e) => {
                   uploadFile(e);
-                }} />
+                }} /> */}
+                  </div>
+                </div>
+              </label>
+            </div>
+            <div className={styles.bottom}>
+              <span className={styles.upload__header}>Coming Soon</span>
+              <div className={styles.soon__services}>
+                <div className={styles.service} style={{ width: collapsed ? "27.5%" : "25%" }}>
+                  <span className={styles.header}>Create Your Dataset</span>
+                </div>
+                <div className={styles.service} style={{ width: collapsed ? "27.5%" : "25%" }}>
+                  <span className={styles.header}>Choose Your Dataset</span>
+                </div>
+                <div className={styles.last__service}>
+                  <span className={styles.header}>Select An Industry</span>
+                </div>
               </div>
             </div>
-          </label>
-        </div>
+          </div>}
       </div>
-      <div className={styles.bottom}>
-        <span className={styles.upload__header}>Coming Soon</span>
-        <div className={styles.soon__services}>
-          <div className={styles.service} style={{ width: collapsed ? "27.5%" : "25%" }}>
-            <span className={styles.header}>Create Your Dataset</span>
-            {/* <span className={styles.info}>Coming Soon</span> */}
-          </div>
-          <div className={styles.service} style={{ width: collapsed ? "27.5%" : "25%" }}>
-            <span className={styles.header}>Choose Your Dataset</span>
-            {/* <span className={styles.info}>Coming Soon</span> */}
-          </div>
-          <div className={styles.last__service}>
-            <span className={styles.header}>Select An Industry</span>
-            {/* <span className={styles.info}>Coming Soon</span> */}
-          </div>
-        </div>
-      </div>
+
       <div className={styles.documentation}>
         <img src={info} alt="" onClick={() => {
           setShow(true)

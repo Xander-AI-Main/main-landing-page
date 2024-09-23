@@ -17,7 +17,6 @@ export default function Login() {
   const [searchParams] = useSearchParams();
 
   async function login() {
-    console.log(details)
     if ((details.email === "" && details.username === "") || details.password === "") {
       // alert("Please fill all the fields")
       toast("Please fill all the fields", {

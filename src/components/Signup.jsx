@@ -8,7 +8,8 @@ import ReactFlagsSelect from "react-flags-select";
 import { useCountries } from "use-react-countries";
 import { Dropdown } from 'react-bootstrap'
 import { sendSignInLinkToEmail } from "firebase/auth";
-import { auth } from '../firebase/firebase';
+import { auth, googleProvider  } from '../firebase/firebase';
+import { signInWithPopup } from 'firebase/auth';
 
 export default function Signup() {
   const navigate = useNavigate()
@@ -77,6 +78,7 @@ export default function Signup() {
   const [futureDate, setFutureDate] = useState(new Date());
   const future = new Date();
   future.setDate(future.getDate() + 30);
+
   const [details, setDetails] = useState({
     email: '',
     password: '',
@@ -96,6 +98,19 @@ export default function Signup() {
   const [searchParams] = useSearchParams();
 
   // console.log(searchParams.get('cameFrom'))
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      console.log('User logged in:', user);
+      toast.success(`Welcome, ${user.displayName}`);
+      // navigate('/dashboard');
+    } catch (error) {
+      console.error('Error during Google login:', error);
+      toast.error('Google login failed');
+    }
+  };
 
   async function signup() {
     if (details.email === "" || details.password === "" || details.username === "" || details.phone_number === "") {
@@ -285,6 +300,7 @@ export default function Signup() {
                 colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
               />}
             </div>
+            {/* <button onClick={handleGoogleLogin}>Sign in with Google</button> */}
           </div>
         </div>
         <div className={styles.gradient__bg}></div>

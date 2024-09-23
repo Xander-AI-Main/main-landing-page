@@ -53,17 +53,6 @@ export default function MainLandingPage({ collapsed }) {
     getUsers();
   }, []);
 
-  async function download(item) {
-    const response = await axios.get(item, { responseType: 'blob' });
-    const url = window.URL.createObjectURL(new Blob([response.data]));
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', item.split("/")[item.split("/").length - 1]);
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.content}>

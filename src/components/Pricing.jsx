@@ -187,7 +187,7 @@ export default function Pricing({ data }) {
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
-              <span className={styles.details}>Regression</span>
+              <span className={styles.details}>All Textual Tasks</span>
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
@@ -224,7 +224,7 @@ export default function Pricing({ data }) {
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
-              <span className={styles.details}>All Textual Tasks</span>
+              <span className={styles.details}>Regression</span>
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" style={{ opacity: 0 }} />
@@ -290,7 +290,7 @@ export default function Pricing({ data }) {
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
-              <span className={styles.details}>Text to Speech</span>
+              <span className={styles.details}>Anomaly Detection</span>
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" style={{ opacity: 0 }} />
