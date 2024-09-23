@@ -154,7 +154,9 @@ export default function Services({ changeState, changeLoadingState, changeFileDa
       </Modal>
       <div className={styles.first}>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          {step === 1 && <img src={back} alt="" className={styles.go__back}/>}
+          {step === 1 && <img src={back} alt="" className={styles.go__back} onClick={() => {
+            setStep(0)
+          }}/>}
           <span className={styles.upload__header}>Upload Dataset</span>
         </div>
         {step === 1 ? <div className={styles.all__services}>
