@@ -195,7 +195,7 @@ export default function Pricing({ data }) {
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
-              <span className={styles.details}>All Textual Tasks</span>
+              <span className={styles.details}>Chatbot Creation</span>
             </div>
             <div className={styles.price__style}>
               <span className={styles.price__header}>Subscribe for</span>
@@ -224,7 +224,7 @@ export default function Pricing({ data }) {
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" />
-              <span className={styles.details}>Chatbot Creation</span>
+              <span className={styles.details}>All Textual Tasks</span>
             </div>
             <div className={styles.text}>
               <img src={tick} alt="" style={{ opacity: 0 }} />
