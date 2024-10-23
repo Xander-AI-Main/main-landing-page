@@ -5,11 +5,11 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import xanderSlice from "./Slices/xanderSlice";
 import noPersistXanderSlice from "./Slices/noPersistXanderSlice";
 
-
 const reducers = combineReducers({
   xanderSlice: xanderSlice,
   noPersistXanderSlice: noPersistXanderSlice,
 });
+
 const persistConfig = {
   key: "root",
   version: 1,
