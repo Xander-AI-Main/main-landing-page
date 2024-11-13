@@ -570,9 +570,11 @@ export default function Signup() {
               <div className={styles.separator}></div>
               <div className={styles.blur}></div>
               <div className={styles.u__header}>
-                {!hasStarted
-                  ? "Your dataset is uploading..."
-                  : "The training has begun!"}
+
+                  {(!hasStarted && !hasEnded) && "Your dataset is uploading..."}
+                  {(hasStarted && !hasEnded) && "The training has begun!"}
+                  {(!hasStarted && hasEnded) && "Training is done, download your model & signup!"}
+                  {(hasStarted && hasEnded) && "Training is done, download your model & signup!"}
               </div>
               {hasStarted && (
                 <div className={styles.training__data} ref={ref} id="scroll">
