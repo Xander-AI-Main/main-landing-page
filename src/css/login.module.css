@@ -385,3 +385,359 @@
 .bg__wave > img {
   width: 100%;
 }
+
+.loading__main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 82vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+}
+
+.top > img {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  margin: auto;
+  margin-bottom: 1.3rem;
+}
+
+.top > span {
+  color: rgba(197, 191, 223, 0.42);
+  font-family: "Gilmer Light";
+  font-size: 20px;
+  font-weight: 600;
+  width: 80%;
+  text-align: center;
+  display: flex;
+  margin: auto;
+  margin-top: 3.5rem;
+}
+
+.loading_bar {
+  width: 25%;
+  height: 15px;
+  background: rgb(217, 217, 217);
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  margin: auto;
+}
+
+.progress {
+  width: 100%;
+  height: 100%;
+  background: rgb(152, 148, 168);
+  transform: translateX(-100%);
+  animation: loading 6s ease-in-out forwards;
+}
+
+@keyframes loading {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 12rem;
+  cursor: pointer;
+}
+
+.blur {
+  filter: blur(150px);
+  background: linear-gradient(
+    214.43deg,
+    rgb(247, 118, 118) -16.281%,
+    rgb(49, 53, 247) 119.677%
+  );
+  opacity: 0.39;
+  position: absolute;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 10rem;
+  left: 35%;
+  margin-top: 2rem;
+}
+
+.separator {
+  background: linear-gradient(90deg, rgb(247, 118, 118), rgb(49, 53, 247));
+  width: 1.45rem;
+  height: 0.35rem;
+  margin-bottom: 2rem;
+}
+
+.box {
+  border-radius: 21px;
+  /* box-shadow: 17px 8px 27.5px -12px rgba(153, 153, 153, 0.6); */
+  background: rgb(197, 191, 223, 0.08);
+  width: 9rem;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.box > img {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+}
+
+.box > span {
+  color: rgb(197, 191, 223);
+  font-family: "Gilmer Light";
+  font-size: 16px;
+}
+
+.understanding__main {
+  width: 100%;
+  height: 73vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.um__sub {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.um__top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.um__top > img {
+  width: 7rem;
+  height: 7rem;
+}
+
+.faces {
+  display: flex;
+  position: relative;
+  z-index: 10;
+}
+
+.dataset__box {
+  border-radius: 21px;
+  /* box-shadow: 17px 8px 27.5px -12px rgba(153, 153, 153, 0.6); */
+  background: rgb(197, 191, 223, 0.08);
+  width: 22rem;
+  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem 1.8rem;
+}
+
+.datasets {
+  display: flex;
+  position: relative;
+  z-index: 10;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 85%;
+}
+
+.um__top > span {
+  color: rgb(197, 191, 223);
+  font-family: "Gilmer Light";
+  font-size: 32px;
+  font-weight: 700;
+  margin: 1.7rem 0rem;
+}
+
+.d__header {
+  color: rgb(197, 191, 223);
+  font-family: "Gilmer Light";
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.d__description {
+  color: rgb(197, 191, 223);
+  font-family: "Gilmer Light";
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.d__download {
+  color: rgb(193, 185, 228);
+  font-family: "Gilmer Light";
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.u__header {
+  color: rgb(192, 183, 232);
+  font-family: "Gilmer Light";
+  font-size: 24px;
+  font-weight: 600;
+}
+
+
+.mainService1 {
+  display: flex;
+  width: 97.5%;
+  height: 16rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background: rgba(217, 217, 217, 0.2);
+  /* backdrop-filter: blur(25.200000762939453px); */
+  margin-top: 2.5rem;
+}
+
+.uploadLabel1 {
+  width: 100%;
+  padding-right: 0;
+  margin-right: 0;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.subService {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  border-radius: 20px;
+  border: 2px dashed #c0b7e8;
+  height: 13rem;
+}
+
+.choose1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6.6rem;
+  justify-content: space-between;
+}
+
+  
+.info1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Brockmann";
+  border-radius: 50px;
+  background: rgba(192, 183, 232, 0.6);
+  padding: 0.6rem 2.5rem;
+}
+
+.upload__icon1 > img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.go__back {
+  width: 24px;
+  height: 24px;
+  margin-right: 1.8rem;
+  margin-top: 0.25rem;
+  cursor: pointer;
+}
+
+.hiddenInput  {
+  display: none;
+}
+
+
+.training__data {
+  height: 14.5rem;
+  overflow-y: scroll;
+  width: 85%;
+  margin-top: 2rem;
+}
+
+.training__data::-webkit-scrollbar {
+  display: none;
+}
+
+.current__train__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.current__train__info > span {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: "Brockmann";
+}
+
+.current__train__info > div {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Gilmer Light";
+}
+
+.training__btns {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  /* margin-top: 2rem; */
+  margin-left: 3rem;
+}
+
+.download__model {
+  cursor: pointer;
+  width: 11rem;
+  height: 3rem;
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.01rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.signup__btn {
+  cursor: pointer;
+  width: 7rem;
+  height: 3rem;
+  color: #dfdfdf;
+  background: rgba(192, 183, 232, 0.50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  font-size: 1.01rem;
+  border-radius: 12px;
+  font-family: "Gilmer Light";
+  font-weight: 600;
+  margin-right: 2rem;
+}
