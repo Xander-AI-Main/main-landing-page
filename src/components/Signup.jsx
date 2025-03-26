@@ -299,7 +299,7 @@ export default function Signup() {
       <div className={styles.navbar__content}>
         <span>Xander</span>
       </div>
-      {step === 0 && (
+      {/* {step === 0 && (
         <div className={styles.loading__main}>
           <div className={styles.top}>
             <img src={loadingBot} alt="" />
@@ -629,8 +629,8 @@ export default function Signup() {
             </div>
           </div>
         </div>
-      )}
-      {step === 6 && (
+      )} */}
+      {step === 0 && (
         <div className={styles.main}>
           <div className={styles.details}>
             <div className={styles.texts}>

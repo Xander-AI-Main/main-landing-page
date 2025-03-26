@@ -14,11 +14,9 @@
   z-index: 12;
 }
 
-.profile__pic {
+.profile__pic {}
 
-}
-
-.profile__pic > span {
+.profile__pic>span {
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: #c0b7e8;
@@ -32,7 +30,7 @@
   align-items: flex-end;
 }
 
-.edit > img {
+.edit>img {
   width: 8.5rem;
   height: 8.5rem;
   border-radius: 10rem;
@@ -48,7 +46,7 @@
   margin-left: 3rem;
 }
 
-.edit__text > span {
+.edit__text>span {
   font-size: 1.05rem;
   color: #fff;
   font-family: "Brockmann";
@@ -58,7 +56,7 @@
   display: flex;
   flex-direction: column;
   margin-right: 7rem
-  /* margin-top: 1.1rem; */
+    /* margin-top: 1.1rem; */
 }
 
 .email__header {
@@ -84,7 +82,7 @@
   padding: 0.9rem 0.95rem;
   border-radius: 10px;
   font-size: 0.96rem;
-  width: 19rem;
+  width: 18rem;
   pointer-events: none;
 }
 

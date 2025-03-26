@@ -1,0 +1,298 @@
+.container {
+    padding-top: 2rem;
+    padding-left: 9rem;
+    width: 93%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header>span {
+    color: #c0b7e8;
+    font-family: 'Gilmer Light';
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.add {
+    color: #c0b7e8;
+    font-family: 'Gilmer Light';
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid #c0b7e8;
+    cursor: pointer;
+    border-radius: 0.8rem;
+}
+
+.text {
+    color: #c0b7e8;
+    font-family: 'Gilmer Light';
+    font-size: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.table {
+    /* margin-top: 2rem; */
+}
+
+
+.table__wrapper {
+    height: 60vh;
+    overflow-y: scroll;
+}
+
+.table__wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.header {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #c0b7e8;
+    font-family: "Gilmer Light";
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.table {
+    width: 100%;
+}
+
+.t__header {
+    position: sticky;
+    top: 0rem;
+    /* background: rgba(217, 217, 217, 0.2);  */
+    z-index: 1;
+}
+
+.t__header>tr>th {
+    background: #575367;
+    color: #c0b7e8;
+    padding: 0.7rem 1rem;
+    font-family: "Brockmann";
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.sno {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.model__name {}
+
+.task__name {
+    padding: 0.7rem 1rem 0.7rem 2rem !important;
+}
+
+.model__type {
+    padding: 0.7rem 1rem 0.7rem 1.3rem !important;
+}
+
+.action {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding: 0.7rem 1rem 0.7rem 2.9rem !important;
+    cursor: pointer;
+}
+
+.t__body>tr {
+    border-bottom: 0.1px solid #c0b7e8;
+}
+
+.t__body>tr>td {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #c4c4c4;
+    font-family: "Gilmer Light";
+    font-weight: 600;
+    padding: 1.1rem 1rem;
+}
+
+.download {
+    cursor: pointer;
+    padding: 1.1rem 1.5rem !important;
+}
+
+.download:hover {
+    color: #c0b7e8;
+    text-decoration: underline;
+}
+
+.code__main {}
+
+.code__main>div {
+    width: 48rem !important;
+    display: flex !important;
+    margin: auto !important;
+    height: 38rem !important;
+    margin-top: 4rem !important;
+    margin-left: -5rem !important;
+}
+
+.code__header {
+    font-size: 1.3rem;
+    /* font-weight: 700; */
+    font-family: "Brockmann";
+}
+
+.code__body {
+    height: 34rem !important;
+    overflow-y: scroll !important;
+}
+
+.file__stuff {
+    margin-bottom: 0.6rem;
+}
+
+.file__first {
+    font-size: 1.1rem;
+    font-family: "Poppins";
+}
+
+.terminal__stuff {}
+
+.terminal__first {
+    font-size: 1.1rem;
+    font-family: "Poppins";
+}
+
+.code__section__main {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+}
+
+.code__section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    background: #0d0d0d;
+    color: #fff;
+    font-family: "Poppins";
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow-x: auto;
+}
+
+.code__section ::-webkit-scrollbar {
+    display: none;
+}
+
+.code__section pre {
+    background: #0d0d0d !important;
+    padding: 0;
+    margin-top: -1.5rem !important;
+}
+
+.code__section code {
+    color: inherit;
+}
+
+.section__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    background: #2f2f2f;
+    padding: 0.8rem 0.8rem;
+    color: #b4b4b4;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 0.85rem;
+}
+
+.section__header>span {
+    cursor: pointer;
+}
+
+.section__header>div {
+    cursor: pointer;
+}
+
+.section__header>div>span {
+    color: #b4b4b4;
+    font-size: 0.85rem;
+}
+
+.section__header>div>img {
+    margin-right: 0.5rem;
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.code__main {
+    margin: auto !important;
+    height: 91vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.code__main>div {
+    width: 30rem !important;
+    display: flex !important;
+    margin: auto !important;
+    height: 14rem !important;
+}
+
+.code__header {
+    font-size: 1.3rem;
+    /* font-weight: 700; */
+    font-family: "Brockmann";
+}
+
+.code__body {}
+
+.code__body::-webkit-scrollbar {
+    display: none;
+}
+
+.code__body>input {
+    width: 100%;
+    font-family: 'Brockmann';
+    font-size: 1rem;
+    padding: 0.55rem 0.7rem;
+    color: #0d0d0d;
+    border: 1px solid #0d0d0d;
+    outline: none;
+    border-radius: 0.6rem;
+    outline: none;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.cancel {
+    color: #3f1fd0;
+    font-family: 'Gilmer Light';
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.55rem 1.7rem;
+    border: 2px solid #aca0e2;
+    cursor: pointer;
+    border-radius: 0.8rem;
+}
+
+.save {
+    background-color: #6d53e2;
+    font-family: 'Gilmer Light';
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.6rem 2.2rem;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    color: #fff;
+}

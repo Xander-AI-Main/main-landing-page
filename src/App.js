@@ -24,6 +24,7 @@ import icon from "../src/assets/image.png";
 import { useSelector } from "react-redux";
 import Contests from "./components/Contests";
 import AfterVeri from "./components/AfterVeri";
+import API from "./components/API";
 
 function App() {
   const [data, setData] = useState({});
@@ -82,10 +83,11 @@ const AppContent = ({ data }) => {
       {useLayout ? (
         <Layout data={data}>
           <Routes>
-            <Route path="/main" element={<MainLandingPage data={data} />} />
+            <Route path="/main" element={<Models data={data} />} />
             <Route path="/profile" element={<Profile data={data} />} />
             <Route path="/models" element={<Models data={data} />} />
             <Route path="/datasets" element={<Datasets data={data} />} />
+            <Route path="/api" element={<API />} />
           </Routes>
         </Layout>
       ) : (
@@ -93,7 +95,7 @@ const AppContent = ({ data }) => {
           <Route path="/" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/pricing" element={<Pricing data={data}/>} />
+          <Route path="/pricing" element={<Pricing data={data} />} />
           <Route path="/contests" element={<Contests />} />
           <Route path="/confirmation" element={<AfterVeri />} />
         </Routes>

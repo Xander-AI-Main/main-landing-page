@@ -28,7 +28,7 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
       </div>
       <div className={styles.options}>
         <div className={styles.above__options}>
-          <div className={styles.option} onClick={() => {
+          {/* <div className={styles.option} onClick={() => {
             if (window.location.href.includes("main")) {
               window.location.reload()
             }
@@ -36,7 +36,7 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
           }}>
             <img src={home} style={{width: '27px'}} alt="profile" />
             {collapsed && <span>Home</span>}
-          </div>
+          </div> */}
           <div className={styles.option} onClick={() => {
             navigate('/profile')
           }}>
@@ -50,10 +50,16 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
             {collapsed && <span>Saved Models</span>}
           </div>
           <div className={styles.option} onClick={() => {
-            navigate('/datasets')
+            navigate('/api')
           }}>
             <img src={dataset} alt="dataset" />
-            {collapsed && <span>Saved Datasets</span>}
+            {collapsed && <span>API Keys</span>}
+          </div>
+          <div className={styles.option} onClick={() => {
+            navigate('/documentation')
+          }}>
+            <img src={dataset} alt="dataset" />
+            {collapsed && <span>Documentation</span>}
           </div>
         </div>
         {collapsed ? <div className={styles.below__options}>
@@ -64,7 +70,7 @@ export default function Sidebar({ data, changeCollapsed, prevCollpased }) {
             }}/>
           </div>
           <span>{data.s3_storage_used && data.s3_storage_used.toFixed(2)} / {data.max_storage_allowed ? data.max_storage_allowed : 0} GB Used</span>
-          <span>{(data.plan === "free" || data.plan === "individual" || data.plan === "researcher" || data.plan === "basic") ? (data.cpu_hours_used && data.cpu_hours_used.toFixed(2)) : (data.gpu_hours_used && data.gpu_hours_used.toFixed(2))} / {data.max_gpu_hours_allowed > 0 ? data.max_gpu_hours_allowed : data.max_cpu_hours_allowed} Hours Used</span>
+          {/* <span>{(data.plan === "free" || data.plan === "individual" || data.plan === "researcher" || data.plan === "basic") ? (data.cpu_hours_used && data.cpu_hours_used.toFixed(2)) : (data.gpu_hours_used && data.gpu_hours_used.toFixed(2))} / {data.max_gpu_hours_allowed > 0 ? data.max_gpu_hours_allowed : data.max_cpu_hours_allowed} Hours Used</span> */}
         </div>
           :
           <div className={styles.i__option} onClick={() => {
